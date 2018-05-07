@@ -1,2 +1,2 @@
 # bearded-happiness
-My dots file, with 💖
+My dot files, with 💖
