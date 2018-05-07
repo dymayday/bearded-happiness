@@ -142,8 +142,8 @@ nnoremap <F3> : <C-u> QFix <CR>
 nnoremap <Tab> <c-w>w
 
 " Use deoplete.
-let g:python_host_prog  = '/home/home/junk/anaconda/envs/py2/bin/python2'
-let g:python3_host_prog = '/home/home/junk/anaconda/envs/maelstrom/bin/python3'
+let g:python_host_prog  = '/opt/usr/anaconda3/envs/py27/bin/python2'
+let g:python3_host_prog = '/opt/usr/anaconda3/envs/maelstrom/bin/python3'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
@@ -174,13 +174,11 @@ smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 smap <m-;> <Plug>(complete_parameter#goto_next_parameter)
 imap <m-;> <Plug>(complete_parameter#goto_next_parameter)
-smap <TAB> <Plug>(complete_parameter#goto_next_parameter)
-imap <TAB> <Plug>(complete_parameter#goto_next_parameter)
 
 smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-smap <s-TAB> <Plug>(complete_parameter#goto_previous_parameter)
-imap <s-TAB> <Plug>(complete_parameter#goto_previous_parameter)
+smap <m-,> <Plug>(complete_parameter#goto_previous_parameter)
+imap <m-,> <Plug>(complete_parameter#goto_previous_parameter)
 
 " ALE setting
 " Enable completion where available.
