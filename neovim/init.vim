@@ -51,8 +51,9 @@ call plug#end()
 
 
 " Activating color theme
-set background=dark    " Setting dark mode
+set background=dark     " Setting dark mode
 "set background=light   " Setting light mode
+set termguicolors 		" This is needed for quit some recent theme nowadays
 let g:gruvbox_contrast_dark = 'medium' "Possible values: soft, medium and hard
 colorscheme onedark
 colorscheme gruvbox
@@ -150,7 +151,8 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#rust#show_duplicates = 1
 "let g:deoplete#sources#rust#disable_keymap=1
 "let g:deoplete#sources#rust#documentation_max_height=75
-nmap <buffer> K <plug>DeopleteRustShowDocumentation
+"nmap <buffer> K <plug>DeopleteRustShowDocumentation
+nmap <buffer> <m-q> <plug>DeopleteRustShowDocumentation
 
 "let g:deoplete#sources.rust = ['LanguageClient']
 let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
@@ -182,12 +184,22 @@ imap <m-,> <Plug>(complete_parameter#goto_previous_parameter)
 
 " ALE setting
 " Enable completion where available.
-"let g:ale_completion_enabled = 1
+"let g:ale_completion_enabled = 1 		" This is buggy with deoplete/LanguageClient-neovim
 let g:ale_linters = {'rust': ['rls']}
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 "let g:ale_open_list = 1
+"let g:ale_set_highlights = 0
+"let g:ale_sign_column_always = 0
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✖'
+"let g:ale_open_list = 1
+" Let's disable ALE's linting by default
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+
 
 " EchoDoc
 "let g:echodoc_enable_at_startup = 1
