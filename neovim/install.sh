@@ -7,3 +7,7 @@ mkdir -p $HOME/.config/nvim/
 cp init.vim $HOME/.config/nvim/init.vim
 
 nvim +PlugClean +qa && nvim +PlugInstall +UpdateRemotePlugins +qa
+
+# Tweak operator color to get a pretty blue
+sed -ie "s\hi! link Operator Normal\hi! link Operator GruvboxBlueBold\g" ~/.config/nvim/plugged/gruvbox/colors/gruvbox.vim
+
