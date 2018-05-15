@@ -6,6 +6,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'majutsushi/tagbar'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -91,6 +92,7 @@ set timeout timeoutlen=2000
 set showcmd       " Show (partial) command in status line.
 set noshowmode    " get rid of -- INSERT --
 set hidden        " Hide buffers when they are abandoned
+set expandtab     " Uses space instead of tabs
 "set wildmenu
 "set wildmode=longest,list:full
 
@@ -107,7 +109,23 @@ endif
 " NERDTree config
 nmap <F7> :NERDTreeToggle<CR>
 " Auto close NERDTree when left alone
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | eno
+
+" Tagbar settings
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
 
 
 
@@ -118,8 +136,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set hidden
 
 let g:LanguageClient_serverCommands = {
-	\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-	\ }
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -161,12 +179,12 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
-		function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ deoplete#mappings#manual_complete()
+        function! s:check_back_space() abort "{{{
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
 
