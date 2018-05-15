@@ -127,10 +127,11 @@ let g:tagbar_type_rust = {
     \]
     \}
 
-
-
 " LanguageClient-neovim settings
-"autocmd BufReadPost *.rs setlocal filetype=rust
+autocmd BufReadPost *.rs setlocal filetype=rust
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -210,6 +211,7 @@ let g:ale_set_quickfix = 1
 "let g:ale_open_list = 1
 "let g:ale_set_highlights = 0
 "let g:ale_sign_column_always = 0
+let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✖'
 "let g:ale_open_list = 1
