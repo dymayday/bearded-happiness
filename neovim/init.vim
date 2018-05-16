@@ -8,6 +8,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 
+Plug 'myusuf3/numbers.vim'
+
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -104,6 +106,11 @@ if !has('gui_running')
       set t_Co=256
 endif
 
+" numbers.vim settings - Toggle relative line numbering
+nnoremap <F9> :NumbersToggle<CR>
+let g:enable_numbers = 0
+"nnoremap <silent> <F9> :set relativenumber!<cr>
+"set norelativenumber
 
 
 " NERDTree config
@@ -132,6 +139,7 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_selectionUI = "fzf"
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
