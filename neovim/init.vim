@@ -116,7 +116,7 @@ let g:enable_numbers = 0
 " NERDTree config
 nmap <F7> :NERDTreeToggle<CR>
 " Auto close NERDTree when left alone
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | eno
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
 
 " Tagbar settings
 nmap <F8> :TagbarToggle<CR>
