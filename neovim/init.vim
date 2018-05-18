@@ -118,6 +118,7 @@ set showcmd       " Show (partial) command in status line.
 set noshowmode    " get rid of -- INSERT --
 set hidden        " Hide buffers when they are abandoned
 set expandtab     " Uses space instead of tabs
+set scrolloff=1   " Always show at least one line above/below the cursor
 "set wildmenu
 "set wildmode=longest,list:full
 
