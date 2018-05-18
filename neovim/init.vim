@@ -17,7 +17,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'wincent/terminus'
 Plug 'ervandew/supertab'
 "Plug 'jiangmiao/auto-pairs'
-Plug 'tenfyzhong/CompleteParameter.vim'
+"Plug 'tenfyzhong/CompleteParameter.vim'
+
+" Automatically close parenthesis, etc
+Plug 'Townk/vim-autoclose'
+
+" Surround things
+"Plug 'tpope/vim-surround'
+
+" Autocomplete plugin
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
+"Plug 'Shougo/echodoc.vim'
+
+" Better language packs
+Plug 'sheerun/vim-polyglot'
 
 " Rust
 Plug 'autozimu/LanguageClient-neovim', {
@@ -27,14 +42,20 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'rust-lang/rust.vim'
 
-" (Optional) Multi-entry selection UI.
-Plug 'junegunn/fzf'
+" Python
+Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
+" Just to add the python go-to-definition and similar features, autocompletion
+" from this plugin is disabled
+Plug 'davidhalter/jedi-vim'
 
-" Autocomplete plugin
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
-"Plug 'Shougo/echodoc.vim'
+" (Optional) Multi-entry selection UI.
+"Plug 'junegunn/fzf'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+"Plug 'ctrlpvim/ctrlp.vim'
+" This is an extension for the awesome vim CtrlP plugin.
+Plug 'fisadev/vim-ctrlp-cmdpalette'
 
 " Linter
 Plug 'w0rp/ale'
@@ -68,6 +89,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
 
 
+" Select commands to be executed by default
+let g:ctrlp_cmdpalette_execute = 1
 
 
 " Common settings
@@ -176,6 +199,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#rust#show_duplicates = 1
+let g:deoplete#auto_completion_start_length = 1
 "let g:deoplete#sources#rust#disable_keymap=1
 "let g:deoplete#sources#rust#documentation_max_height=75
 "nmap <buffer> K <plug>DeopleteRustShowDocumentation
@@ -185,31 +209,45 @@ nmap <buffer> <m-q> <plug>DeopleteRustShowDocumentation
 let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ deoplete#mappings#manual_complete()
-        function! s:check_back_space() abort "{{{
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+"inoremap <silent><expr> <TAB>
+        "\ pumvisible() ? "\<C-n>" :
+        "\ <SID>check_back_space() ? "\<TAB>" :
+        "\ deoplete#mappings#manual_complete()
+        "function! s:check_back_space() abort "{{{
+        "let col = col('.') - 1
+        "return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction"}}}
 
+"inoremap <silent><expr> <C-Space>
+        "\ pumvisible() ? "\<C-n>" :
+        "\ <SID>check_back_space() ? "\<TAB>" :
+        "\ deoplete#mappings#manual_complete()
+        "function! s:check_back_space() abort "{{{
+        "let col = col('.') - 1
+        "return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction"}}}
+
+
+" Python settings
+" Disable autocompletion (using deoplete instead)
+let g:jedi#completions_enabled = 0 
 
 " CompleteParameter settings
-inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <m-;> <Plug>(complete_parameter#goto_next_parameter)
-imap <m-;> <Plug>(complete_parameter#goto_next_parameter)
+"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <m-;> <Plug>(complete_parameter#goto_next_parameter)
+"imap <m-;> <Plug>(complete_parameter#goto_next_parameter)
 
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-smap <m-,> <Plug>(complete_parameter#goto_previous_parameter)
-imap <m-,> <Plug>(complete_parameter#goto_previous_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"smap <m-,> <Plug>(complete_parameter#goto_previous_parameter)<Paste>
+"imap <m-,> <Plug>(complete_parameter#goto_previous_parameter))
 
 " ALE setting
+let g:airline#extensions#ale#enabled = 1
 " Enable completion where available.
 "let g:ale_completion_enabled = 1 		" This is buggy with deoplete/LanguageClient-neovim
 let g:ale_linters = {'rust': ['rls']}
@@ -231,3 +269,30 @@ let g:ale_lint_on_save = 0
 
 " EchoDoc
 "let g:echodoc_enable_at_startup = 1
+
+" CtrlP settings
+let g:ctrlp_map = ''
+
+" Vim-CtrlP-CmdPalette settings
+let g:ctrlp_cmdpalette_execute = 1
+
+nmap <m-p> :CtrlPCmdPalette<CR>
+
+" fzf settings
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+"let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
+let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
