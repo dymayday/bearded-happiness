@@ -16,11 +16,11 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'wincent/terminus'
 Plug 'ervandew/supertab'
-"Plug 'jiangmiao/auto-pairs'
-"Plug 'tenfyzhong/CompleteParameter.vim'
 
 " Automatically close parenthesis, etc
-Plug 'Townk/vim-autoclose'
+Plug 'jiangmiao/auto-pairs'
+
+"Plug 'tenfyzhong/CompleteParameter.vim'
 
 " Surround things
 "Plug 'tpope/vim-surround'
