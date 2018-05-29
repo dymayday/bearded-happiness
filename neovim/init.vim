@@ -26,6 +26,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Autocomplete plugin
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'roxma/nvim-completion-manager'
 "Plug 'Shougo/neosnippet.vim'
 "Plug 'Shougo/neosnippet-snippets'
 
