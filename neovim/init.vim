@@ -149,8 +149,6 @@ endif
 " numbers.vim settings - Toggle relative line numbering
 nnoremap <F9> :NumbersToggle<CR>
 let g:enable_numbers = 0
-"nnoremap <silent> <F9> :set relativenumber!<cr>
-"set norelativenumber
 
 
 " NERDTree config
