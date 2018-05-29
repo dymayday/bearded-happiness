@@ -47,9 +47,6 @@ Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
 
-" Better language packs
-Plug 'sheerun/vim-polyglot'
-
 " Linter
 Plug 'w0rp/ale'
 
@@ -150,28 +147,27 @@ endif
 nnoremap <F9> :NumbersToggle<CR>
 let g:enable_numbers = 0
 
+" TagBar setup
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_rust = {
+    \'ctagstype' : 'rust',
+    \'kinds' : [
+    \'T:types,type definitions',
+    \'f:functions,function definitions',
+    \'g:enum,enumeration names',
+    \'s:structure names',
+    \'m:modules,module names',
+    \'c:consts,static constants',
+    \'t:traits',
+    \'i:impls,trait implementations',
+    \]
+    \}
 
 " NERDTree config
 nmap <F7> :NERDTreeToggle<CR>
 " Auto close NERDTree when left alone
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
 
-
-" TagBar setup
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits',
-        \'i:impls,trait implementations',
-    \]
-    \}
 
 
 " LanguageClient-neovim settings
@@ -234,7 +230,7 @@ let g:deoplete#auto_completion_start_length = 1
 
 " Python settings
 " Disable autocompletion (using deoplete instead)
-let g:jedi#completions_enabled = 0 
+let g:jedi#completions_enabled = 0
 
 " ALE setting
 let g:airline#extensions#ale#enabled = 1
