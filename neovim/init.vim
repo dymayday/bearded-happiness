@@ -184,8 +184,8 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
 "let g:deoplete#sources.rust = ['LanguageClient']
-let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 "let g:deoplete#sources#rust#disable_keymap=1
 "let g:deoplete#sources#rust#documentation_max_height=75
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
