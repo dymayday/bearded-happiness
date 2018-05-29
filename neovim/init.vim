@@ -2,12 +2,14 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+filetype off
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 
+" Relative line number
 Plug 'myusuf3/numbers.vim'
 
 " Git
@@ -17,19 +19,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'wincent/terminus'
 Plug 'ervandew/supertab'
 
+
+" LANGUAGE SUPPORT
 " Automatically close parenthesis, etc
 Plug 'jiangmiao/auto-pairs'
-
-"Plug 'tenfyzhong/CompleteParameter.vim'
-
-" Surround things
-"Plug 'tpope/vim-surround'
 
 " Autocomplete plugin
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'Shougo/neosnippet.vim'
 "Plug 'Shougo/neosnippet-snippets'
-"Plug 'Shougo/echodoc.vim'
 
 " Better language packs
 Plug 'sheerun/vim-polyglot'
@@ -48,17 +46,23 @@ Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
 
-" (Optional) Multi-entry selection UI.
-"Plug 'junegunn/fzf'
-Plug '/usr/bin/fzf'
-Plug 'junegunn/fzf.vim'
-" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-"Plug 'ctrlpvim/ctrlp.vim'
-" This is an extension for the awesome vim CtrlP plugin.
-Plug 'fisadev/vim-ctrlp-cmdpalette'
+" Better language packs
+Plug 'sheerun/vim-polyglot'
 
 " Linter
 Plug 'w0rp/ale'
+
+
+
+" Multi-entry selection UI.
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'ctrlpvim/ctrlp.vim'
+" This is an extension for the awesome vim CtrlP plugin.
+Plug 'fisadev/vim-ctrlp-cmdpalette'
+
+
 
 " Color themes
 Plug 'morhetz/gruvbox'
@@ -68,10 +72,15 @@ Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Initialize plugin system
+" A plugin to color colornames and codes
+Plug 'chrisbra/Colorizer'
+
+
 call plug#end()
+filetype on
 
-
+"let g:gruvbox_improved_strings = 1
+"let g:gruvbox_improved_warnings = 1
 
 
 " Activating color theme
@@ -85,8 +94,8 @@ colorscheme gruvbox
 " Airline settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_theme='deus'
-let g:airline_theme='bubblegum'
+let g:airline_theme='deus'
+"let g:airline_theme='bubblegum'
 
 
 " Select commands to be executed by default
@@ -122,6 +131,13 @@ set scrolloff=1   " Always show at least one line above/below the cursor
 "set wildmenu
 "set wildmode=longest,list:full
 
+" Copy to clipboard
+nnoremap  <leader>y  "+y
+vnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 
 set backup
 set backupdir=$HOME/.vim.backup
@@ -172,7 +188,11 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
 
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <M-f> :call LanguageClient_textDocument_formatting()<CR>
+nnoremap <silent> <M-l> :call LanguageClient_textDocument_rangeFormatting()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
@@ -196,7 +216,11 @@ nnoremap <Tab> <c-w>w
 " Use deoplete.
 let g:python_host_prog  = '/opt/usr/anaconda3/envs/py27/bin/python2'
 let g:python3_host_prog = '/opt/usr/anaconda3/envs/maelstrom/bin/python3'
+"let g:deoplete#sources#jedi#python_path = '/opt/usr/anaconda3/envs/maelstrom/bin/python3'
+let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = "<c-n>"
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#rust#show_duplicates = 1
@@ -255,9 +279,8 @@ let g:ale_linters = {'rust': ['rls']}
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-"let g:ale_open_list = 1
-"let g:ale_set_highlights = 0
-"let g:ale_sign_column_always = 0
+let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 0
 let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✖'
@@ -267,9 +290,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
 
-
-" EchoDoc
-"let g:echodoc_enable_at_startup = 1
 
 " CtrlP settings
 let g:ctrlp_map = ''
