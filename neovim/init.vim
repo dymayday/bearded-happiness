@@ -54,7 +54,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
 
-
 " Multi-entry selection UI.
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -64,14 +63,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fisadev/vim-ctrlp-cmdpalette'
 
 
+" Some pretty things
+" Airline theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Color themes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
-
-" Airline theme
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " A plugin to color colornames and codes
 Plug 'chrisbra/Colorizer'
