@@ -188,6 +188,12 @@ set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
+"let g:deoplete#sources.rust = ['LanguageClient']
+let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"let g:deoplete#sources#rust#disable_keymap=1
+"let g:deoplete#sources#rust#documentation_max_height=75
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -226,16 +232,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#rust#show_duplicates = 1
 let g:deoplete#auto_completion_start_length = 1
-"let g:deoplete#sources#rust#disable_keymap=1
-"let g:deoplete#sources#rust#documentation_max_height=75
-"nmap <buffer> K <plug>DeopleteRustShowDocumentation
-nmap <buffer> <m-q> <plug>DeopleteRustShowDocumentation
-
-"let g:deoplete#sources.rust = ['LanguageClient']
-let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Python settings
 " Disable autocompletion (using deoplete instead)
