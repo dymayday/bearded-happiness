@@ -156,7 +156,8 @@ nmap <F7> :NERDTreeToggle<CR>
 " Auto close NERDTree when left alone
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
 
-" Tagbar settings
+
+" TagBar setup
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_rust = {
     \ 'ctagstype' : 'rust',
@@ -171,6 +172,7 @@ let g:tagbar_type_rust = {
         \'i:impls,trait implementations',
     \]
     \}
+
 
 " LanguageClient-neovim settings
 autocmd BufReadPost *.rs setlocal filetype=rust
@@ -234,40 +236,9 @@ let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/n
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-"inoremap <silent><expr> <TAB>
-        "\ pumvisible() ? "\<C-n>" :
-        "\ <SID>check_back_space() ? "\<TAB>" :
-        "\ deoplete#mappings#manual_complete()
-        "function! s:check_back_space() abort "{{{
-        "let col = col('.') - 1
-        "return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
-
-"inoremap <silent><expr> <C-Space>
-        "\ pumvisible() ? "\<C-n>" :
-        "\ <SID>check_back_space() ? "\<TAB>" :
-        "\ deoplete#mappings#manual_complete()
-        "function! s:check_back_space() abort "{{{
-        "let col = col('.') - 1
-        "return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
-
-
 " Python settings
 " Disable autocompletion (using deoplete instead)
 let g:jedi#completions_enabled = 0 
-
-" CompleteParameter settings
-"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-"smap <m-;> <Plug>(complete_parameter#goto_next_parameter)
-"imap <m-;> <Plug>(complete_parameter#goto_next_parameter)
-
-"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-"smap <m-,> <Plug>(complete_parameter#goto_previous_parameter)<Paste>
-"imap <m-,> <Plug>(complete_parameter#goto_previous_parameter))
 
 " ALE setting
 let g:airline#extensions#ale#enabled = 1
@@ -277,8 +248,9 @@ let g:ale_linters = {'rust': ['rls']}
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_set_highlights = 0
-let g:ale_sign_column_always = 0
+"let g:ale_open_list = 1
+"let g:ale_set_highlights = 0
+"let g:ale_sign_column_always = 0
 let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✖'
