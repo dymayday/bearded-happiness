@@ -177,6 +177,11 @@ autocmd BufReadPost *.rs setlocal filetype=rust
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_selectionUI = "fzf"
 
+call deoplete#custom#source(
+            \ 'LanguageClient',
+            \ 'min_pattern_length',
+            \ 1)
+
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
