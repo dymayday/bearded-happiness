@@ -68,6 +68,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Color themes
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
 
 " A plugin to color colornames and codes
 Plug 'chrisbra/Colorizer'
@@ -80,6 +81,7 @@ filetype on
 "let g:gruvbox_improved_warnings = 1
 
 
+let base16colorspace=256 " Access colors present in 256 colorspace
 " Activating color theme
 set background=dark     " Setting dark mode
 "set background=light   " Setting light mode
@@ -198,6 +200,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
+nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
+imap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
 nnoremap <silent> <M-f> :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <silent> <M-l> :call LanguageClient_textDocument_rangeFormatting()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -264,7 +268,8 @@ let g:ctrlp_map = ''
 " Vim-CtrlP-CmdPalette settings
 let g:ctrlp_cmdpalette_execute = 1
 
-nmap <m-p> :CtrlPCmdPalette<CR>
+"nmap <m-p> :CtrlPCmdPalette<CR>
+nmap <M-p> :CtrlPCmdPalette<CR>
 
 " fzf settings
 " This is the default extra key bindings
@@ -283,4 +288,5 @@ let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split enew' }
 
 "let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
-let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
+"let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
+let g:ctrlp_user_command = 'fd --type f'
