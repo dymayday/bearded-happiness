@@ -9,6 +9,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 
+" Auto insert semi colon at the end of Rust file YaY ! =]
+Plug 'tpope/vim-repeat'
+Plug 'lfilho/cosco.vim'
+
 " Relative line number
 Plug 'myusuf3/numbers.vim'
 
@@ -83,9 +87,9 @@ filetype on
 
 let base16colorspace=256 " Access colors present in 256 colorspace
 " Activating color theme
-set background=dark     " Setting dark mode
-"set background=light   " Setting light mode
-set termguicolors 		" This is needed for quit some recent theme nowadays
+set background=dark      " Setting dark mode
+"set background=light    " Setting light mode
+set termguicolors 		 " This is needed for quit some recent theme nowadays
 let g:gruvbox_contrast_dark = 'medium' "Possible values: soft, medium and hard
 colorscheme onedark
 colorscheme gruvbox
@@ -137,6 +141,13 @@ vnoremap  <leader>y  "+y
 " Paste from clipboard
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
+
+" Auto insert semicolon using cosco
+let g:cosco_ignore_comment_lines = 1     " Default : 0
+"let g:auto_comma_or_semicolon = 1        " Default : 0, way too experimental
+let g:cosco_filetype_whitelist = ['rust']
+autocmd FileType rust nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+autocmd FileType rust imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
 
 set backup
 set backupdir=$HOME/.vim.backup
@@ -195,12 +206,14 @@ let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 "let g:deoplete#sources#rust#disable_keymap=1
 "let g:deoplete#sources#rust#documentation_max_height=75
+let g:deoplete#sources#rust#show_duplicates = 0
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
 nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
+nmap <silent> <M-x> <plug>DeopleteRustShowDocumentation
 imap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
 nnoremap <silent> <M-f> :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <silent> <M-l> :call LanguageClient_textDocument_rangeFormatting()<CR>
@@ -234,7 +247,6 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#sources#rust#show_duplicates = 1
 let g:deoplete#auto_completion_start_length = 1
 
 " Python settings
@@ -263,13 +275,22 @@ let g:ale_lint_on_save = 0
 
 
 " CtrlP settings
-let g:ctrlp_map = ''
+"let g:ctrlp_map = ''
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " Vim-CtrlP-CmdPalette settings
 let g:ctrlp_cmdpalette_execute = 1
 
 "nmap <m-p> :CtrlPCmdPalette<CR>
 nmap <M-p> :CtrlPCmdPalette<CR>
+" Open file menu
+nnoremap <Leader>o :CtrlP<CR>
+" Open buffer menu
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" Open most recently used files
+nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
 " fzf settings
 " This is the default extra key bindings
