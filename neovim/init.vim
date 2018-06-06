@@ -148,6 +148,7 @@ let g:cosco_ignore_comment_lines = 1     " Default : 0
 let g:cosco_filetype_whitelist = ['rust']
 autocmd FileType rust nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 autocmd FileType rust imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
+autocmd FileType rust imap <silent> <Leader>o <c-o><Plug>(cosco-commaOrSemiColon)<ESC>o
 
 set backup
 set backupdir=$HOME/.vim.backup
