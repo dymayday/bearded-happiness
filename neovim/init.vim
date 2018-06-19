@@ -7,6 +7,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'majutsushi/tagbar'
 
 " Auto insert semi colon at the end of Rust file YaY ! =]
