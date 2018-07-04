@@ -29,6 +29,9 @@ Plug 'ervandew/supertab'
 " Automatically close parenthesis, etc
 Plug 'jiangmiao/auto-pairs'
 
+" Color parenthesis and such
+Plug 'luochen1990/rainbow'
+
 " Autocomplete plugin
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'roxma/nvim-completion-manager'
@@ -182,6 +185,9 @@ let g:tagbar_type_rust = {
 nmap <F7> :NERDTreeToggle<CR>
 " Auto close NERDTree when left alone
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
+
+" Rainbow parenthesis toggle.
+nmap <F6> :RainbowToggle<CR>
 
 
 
