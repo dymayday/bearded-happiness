@@ -34,9 +34,12 @@ Plug 'luochen1990/rainbow'
 
 " Autocomplete plugin
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'roxma/nvim-completion-manager'
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
+
+" Snippers support
+" Track the engine
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. So we need to add this:
+Plug 'honza/vim-snippets'
 
 " Better language packs
 Plug 'sheerun/vim-polyglot'
@@ -189,6 +192,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Rainbow parenthesis toggle.
 nmap <F6> :RainbowToggle<CR>
 
+" Auto-Pairs settings.
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
 
 
 " LanguageClient-neovim settings
@@ -280,6 +287,16 @@ let g:ale_sign_error = '✖'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
+
+
+" Snippers setup up.
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-s>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 " CtrlP settings
