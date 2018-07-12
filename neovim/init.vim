@@ -146,8 +146,8 @@ nnoremap  <leader>y  "+y
 vnoremap  <leader>y  "+y
 
 " Paste from clipboard
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+nnoremap <leader>p  "+p
+vnoremap <leader>p  "+p
 
 " Auto insert semicolon using cosco
 let g:cosco_ignore_comment_lines = 1     " Default : 0
@@ -291,9 +291,9 @@ let g:ale_lint_on_save = 0
 
 " Snippers setup up.
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-s>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<m-s>"
+let g:UltiSnipsJumpForwardTrigger="<m-s>"
+let g:UltiSnipsJumpBackwardTrigger="<m-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
