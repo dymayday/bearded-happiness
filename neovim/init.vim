@@ -8,7 +8,11 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
-Plug 'majutsushi/tagbar'
+
+" Ouline viewer
+" Plug 'majutsushi/tagbar'
+" TagBar alternat using CtrlP
+Plug 'tacahiroy/ctrlp-funky'
 
 " Auto insert semi colon at the end of Rust file YaY ! =]
 Plug 'tpope/vim-repeat'
@@ -169,20 +173,25 @@ nnoremap <F9> :NumbersToggle<CR>
 let g:enable_numbers = 0
 
 " TagBar setup
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_rust = {
-    \'ctagstype' : 'rust',
-    \'kinds' : [
-    \'T:types,type definitions',
-    \'f:functions,function definitions',
-    \'g:enum,enumeration names',
-    \'s:structure names',
-    \'m:modules,module names',
-    \'c:consts,static constants',
-    \'t:traits',
-    \'i:impls,trait implementations',
-    \]
-    \}
+" nmap <F8> :TagbarToggle<CR>
+" let g:tagbar_type_rust = {
+"     \ 'ctagstype' : 'rust',
+"     \ 'kinds' : [
+"         \'T:types,type definitions',
+"         \'f:functions,function definitions',
+"         \'g:enum,enumeration names',
+"         \'s:structure names',
+"         \'m:modules,module names',
+"         \'c:consts,static constants',
+"         \'t:traits',
+"         \'i:impls,trait implementations',
+"         \]
+"     \}
+
+
+" ctrlp-funky is a TagBar alternat using CtrlP
+let g:ctrlp_funky_syntax_highlight = 1
+
 
 " NERDTree config
 nmap <F7> :NERDTreeToggle<CR>
