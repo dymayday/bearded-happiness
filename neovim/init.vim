@@ -6,6 +6,7 @@ filetype off
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
+" Comment helper.
 Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
 
@@ -160,6 +161,7 @@ let g:cosco_filetype_whitelist = ['rust']
 autocmd FileType rust nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 autocmd FileType rust imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
 autocmd FileType rust imap <silent> <Leader>o <c-o><Plug>(cosco-commaOrSemiColon)<ESC>o
+autocmd FileType rust nmap <silent> <Leader>o <Plug>(cosco-commaOrSemiColon)<ESC>o
 
 set backup
 set backupdir=$HOME/.vim.backup
@@ -320,7 +322,7 @@ let g:ctrlp_cmdpalette_execute = 1
 "nmap <m-p> :CtrlPCmdPalette<CR>
 nmap <M-p> :CtrlPCmdPalette<CR>
 " Open file menu
-nnoremap <Leader>o :CtrlP<CR>
+" nnoremap <Leader>o :CtrlP<CR>
 " Open buffer menu
 nnoremap <Leader>b :CtrlPBuffer<CR>
 " Open most recently used files
