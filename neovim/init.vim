@@ -38,13 +38,27 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 
 " Autocomplete plugin
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Completetion manager. New and way better than deoplete
+Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+Plug 'roxma/nvim-yarp'
 
 " Snippers support
 " Track the engine
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. So we need to add this:
 Plug 'honza/vim-snippets'
+Plug 'ncm2/ncm2-ultisnips'
+
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+" Commenting out this one because it create duplicate entry with RLS.
+" Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'ncm2/ncm2-match-highlight'
 
 " Better language packs
 Plug 'sheerun/vim-polyglot'
@@ -228,6 +242,17 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
 "let g:deoplete#sources.rust = ['LanguageClient']
+" let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
+" let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+" "let g:deoplete#sources#rust#disable_keymap=1
+" "let g:deoplete#sources#rust#documentation_max_height=75
+" let g:deoplete#sources#rust#show_duplicates = 0
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Completion manager settings.
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" :help Ncm2PopupOpen for more information
 let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 "let g:deoplete#sources#rust#disable_keymap=1
@@ -305,6 +330,10 @@ let g:ale_lint_on_save = 0
 let g:UltiSnipsExpandTrigger="<m-s>"
 let g:UltiSnipsJumpForwardTrigger="<m-s>"
 let g:UltiSnipsJumpBackwardTrigger="<m-z>"
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
