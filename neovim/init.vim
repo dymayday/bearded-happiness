@@ -68,11 +68,11 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'make release',
     \ }
-Plug 'sebastianmarkow/deoplete-rust'
+" Plug 'sebastianmarkow/deoplete-rust'
 Plug 'rust-lang/rust.vim'
 
 " Python
-Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 " Just to add the python go-to-definition and similar features, autocompletion
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
@@ -225,21 +225,24 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " LanguageClient-neovim settings
 autocmd BufReadPost *.rs setlocal filetype=rust
+" Disable linting for python files.
+autocmd FileType python let g:LanguageClient_diagnosticsEnable=0
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_selectionUI = "fzf"
 
-call deoplete#custom#source(
-            \ 'LanguageClient',
-            \ 'min_pattern_length',
-            \ 1)
+" call deoplete#custom#source(
+"             \ 'LanguageClient',
+"             \ 'min_pattern_length',
+"             \ 1)
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'python': ['/home/home/junk/anaconda/envs/maelstrom/bin/pyls'],
     \ }
 "let g:deoplete#sources.rust = ['LanguageClient']
 " let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
@@ -253,19 +256,21 @@ let g:LanguageClient_serverCommands = {
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 " :help Ncm2PopupOpen for more information
-let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-"let g:deoplete#sources#rust#disable_keymap=1
-"let g:deoplete#sources#rust#documentation_max_height=75
-let g:deoplete#sources#rust#show_duplicates = 0
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+set completeopt=noinsert,menuone,noselect
+
+" ncm2-match-highlight config.
+let g:ncm2#match_highlight = 'bold'
+" Start autocompletion from ncm2 first character entered
+let g:ncm2#complete_length = 1
+
+
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
-nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
-nmap <silent> <M-x> <plug>DeopleteRustShowDocumentation
-imap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
+" nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
+" nmap <silent> <M-x> <plug>DeopleteRustShowDocumentation
+" imap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
 nnoremap <silent> <M-f> :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <silent> <M-l> :call LanguageClient_textDocument_rangeFormatting()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -289,10 +294,10 @@ nnoremap <F3> : <C-u> QFix <CR>
 nnoremap <Tab> <c-w>w
 
 " Use deoplete.
-let g:python_host_prog  = '/opt/usr/anaconda3/envs/py27/bin/python2'
-let g:python3_host_prog = '/opt/usr/anaconda3/envs/maelstrom/bin/python3'
-"let g:deoplete#sources#jedi#python_path = '/opt/usr/anaconda3/envs/maelstrom/bin/python3'
-let g:deoplete#sources#jedi#server_timeout = 60
+" let g:python_host_prog="/home/home/junk/anaconda/envs/py2/bin/python"
+" let g:python3_host_prog="/home/home/junk/anaconda/envs/maelstrom/bin/python3.6"
+" let g:deoplete#sources#jedi#python_path = '/home/home/junk/anaconda/envs/maelstrom/bin/python'
+" let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = "<c-n>"
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
