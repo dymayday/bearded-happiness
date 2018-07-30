@@ -12,6 +12,8 @@ Plug 'tomtom/tcomment_vim'
 
 " Ouline viewer
 " Plug 'majutsushi/tagbar'
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/unite-outline'
 " TagBar alternat using CtrlP
 Plug 'tacahiroy/ctrlp-funky'
 
@@ -187,6 +189,11 @@ endif
 " numbers.vim settings - Toggle relative line numbering
 nnoremap <F9> :NumbersToggle<CR>
 let g:enable_numbers = 0
+
+
+" ctags configuration
+" autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+" autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
 
 " TagBar setup
 " nmap <F8> :TagbarToggle<CR>
