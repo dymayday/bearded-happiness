@@ -207,6 +207,12 @@ let g:enable_numbers = 0
 
 " ctrlp-funky is a TagBar alternat using CtrlP
 let g:ctrlp_funky_syntax_highlight = 1
+" This allows you to switch to no-limit mode.
+let g:ctrlp_funky_nolim = 1
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
 
 
 " NERDTree config
