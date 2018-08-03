@@ -6,7 +6,8 @@ filetype off
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
-" Comment helper.
+" Add fancy icons to NerdTree
+" Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
 
@@ -16,6 +17,9 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/unite-outline'
 " TagBar alternat using CtrlP
 Plug 'tacahiroy/ctrlp-funky'
+
+" Show parameter doc.
+Plug 'Shougo/echodoc.vim'
 
 " Auto insert semi colon at the end of Rust file YaY ! =]
 Plug 'tpope/vim-repeat'
@@ -34,7 +38,8 @@ Plug 'ervandew/supertab'
 
 " LANGUAGE SUPPORT
 " Automatically close parenthesis, etc
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 
 " Color parenthesis and such
 Plug 'luochen1990/rainbow'
@@ -60,6 +65,7 @@ Plug 'ncm2/ncm2-jedi'
 " Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
 Plug 'ncm2/ncm2-match-highlight'
 
 " Better language packs
@@ -131,6 +137,10 @@ let g:airline_theme='deus'
 
 " Select commands to be executed by default
 let g:ctrlp_cmdpalette_execute = 1
+
+" Set the cmd height for a better echodoc integration
+let g:echodoc#enable_at_startup = 1
+set cmdheight=1
 
 
 " Common settings
@@ -231,7 +241,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <F6> :RainbowToggle<CR>
 
 " Auto-Pairs settings.
-let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 
@@ -272,7 +282,8 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 " ncm2-match-highlight config.
-let g:ncm2#match_highlight = 'bold'
+" let g:ncm2#match_highlight = 'bold'
+let g:ncm2#match_highlight = 'sans-serif-bold'
 " Start autocompletion from ncm2 first character entered
 let g:ncm2#complete_length = 1
 
