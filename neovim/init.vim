@@ -44,6 +44,9 @@ Plug 'Raimondi/delimitMate'
 " Color parenthesis and such
 Plug 'luochen1990/rainbow'
 
+" Add beautifull bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
+
 " Autocomplete plugin
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
