@@ -165,7 +165,7 @@ set history=10000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 set title         " change the terminal's title
 set mouse=a
-let mapleader="<"   " change leader key from '\' to '<'
+" let mapleader="<"   " change leader key from '\' to '<'
 set timeout timeoutlen=2000
 set showcmd       " Show (partial) command in status line.
 set noshowmode    " get rid of -- INSERT --
@@ -174,6 +174,10 @@ set expandtab     " Uses space instead of tabs
 set scrolloff=1   " Always show at least one line above/below the cursor
 "set wildmenu
 "set wildmode=longest,list:full
+
+" Map leader to '<' and ',' as well
+map , <leader>
+map < <leader>
 
 " Copy to clipboard
 nnoremap  <leader>y  "+y
