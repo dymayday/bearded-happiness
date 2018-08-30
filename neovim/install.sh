@@ -8,7 +8,10 @@ cp init.vim "$HOME/.config/nvim/init.vim"
 
 nvim +PlugClean +qa && nvim +PlugInstall +UpdateRemotePlugins +qa && nvim +PlugUpdate +UpdateRemotePlugins +qa
 
-# Tweak operator color to get a pretty blue
+# Tweak operator color to get a pretty blue.
 sed -ie "s\\hi! link Operator Normal\\hi! link Operator GruvboxBlueBold\\g" ~/.config/nvim/plugged/gruvbox/colors/gruvbox.vim
+
+# Update ctrlp-funky Rust support.
+cp ctrlp/funky/ft/rust.vim ~/.config/nvim/plugged/ctrlp-funky/autoload/ctrlp/funky/ft/rust.vim
 
 cp ctags ~/.ctags
