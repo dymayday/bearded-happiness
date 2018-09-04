@@ -13,6 +13,8 @@ Plug 'tomtom/tcomment_vim'
 
 " Ouline viewer
 " Plug 'majutsushi/tagbar'
+
+" Obscure but powerfull plugins.
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/unite-outline'
 " TagBar alternat using CtrlP
