@@ -1,0 +1,304 @@
+# zsh settings
+
+# Improve history
+HISTSIZE=100000000
+HISTFILESIZE=2000000
+setopt CORRECT
+
+# Powerline exports:
+POWERLINE_RIGHT_A="exit-status-on-fail"
+BULLETTRAIN_STATUS_SHOW=true
+BULLETTRAIN_STATUS_EXIT_SHOW=true
+BULLETTRAIN_EXEC_TIME_SHOW=true
+BULLETTRAIN_DIR_EXTENDED=2
+#export TERM="xterm-256color"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+# plugins=(git git-flow colored-man-pages common-aliases pip colorize virtualenv django zsh-autosuggestions nvm systemd cargo tpm)
+plugins=(git git-flow colored-man-pages pip colorize virtualenv django zsh-autosuggestions nvm systemd cargo tpm)
+
+# Custom color
+#export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.nc=00;33:*.pyt=00;36:*.py=01;97:*.xml=00;35:*.jl=00;36"
+
+# Scripts export
+export SCRIPTS="$SCRIPTS:$HOME/scripts"
+
+# Path export
+export PATH="$PATH:$SCRIPTS"
+
+# Python path export
+export PYTHONPATH="$PYTHONPATH:$PATH"
+export PYTHONPATH="$PYTHONPATH:$SCRIPTS"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+export EDITOR="$(if [[ -f /usr/bin/nvim ]]; then echo 'nvim'; else echo 'vim'; fi)"
+
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+if [ -f ~/.profile ]; then
+    . ~/.profile
+fi 
+ 
+
+# Example aliases
+alias rm="rm"
+alias ll="ls -larth"
+alias lm="ls -laShr"
+alias cp="cp"
+alias pfs='~/scripts/python_full_search_package.py '
+
+alias sshco="~/scripts/sshco.sh"
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+
+# Bash functions
+function cs() { cd "$@" && ls -lh --color='always'; }
+function ce() { cd "$@" && exa -lg; }
+function cx() { cd "$@" && exa -lg; }
+
+function act() {conda activate "$1" && export VIRTUAL_ENV="${CONDA_HOME}/envs/${1}" ;}
+
+export ZGEN_HOME="/opt/usr/.zgen"
+# export ZGEN_HOME="$HOME/.zgen"
+if [[ ! -s $ZGEN_HOME/zgen.zsh ]]; then
+    git clone https://github.com/tarjoilija/zgen.git "$ZGEN_HOME"
+    mkdir -p /opt/usr/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+    git clone --depth 1 https://github.com/junegunn/fzf.git /opt/usr/.fzf && /opt/usr/.fzf/install
+fi
+
+if [[ ! -s $HOME/.vim/bundle/Vundle.vim ]]; then
+    mkdir -p /opt/usr/.vim/bundle && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+    git clone --depth 1 https://github.com/junegunn/fzf.git /opt/usr/.fzf && /opt/usr/.fzf/install
+fi
+
+if [[ -s $ZGEN_HOME/zgen.zsh ]]; then
+    export ZGEN_DIR="$ZGEN_HOME"
+    source "$ZGEN_HOME/zgen.zsh"
+
+    # check if there's an init.zsh file for zgen and generate one if not.
+    if ! zgen saved; then
+        zgen oh-my-zsh
+
+        # If zsh-syntax-highlighting is bundled after zsh-history-substring-search,
+        # they break, so get the order right.
+        zgen load zsh-users/zsh-syntax-highlighting
+        zgen load zsh-users/zsh-history-substring-search
+
+        # Automatically run zgen update and zgen selfupdate every 7 days
+        zgen load unixorn/autoupdate-zgen
+
+        # Load some oh-my-zsh plugins
+        zgen oh-my-zsh plugins/sudo
+        zgen oh-my-zsh plugins/colored-man-pages
+        zgen oh-my-zsh plugins/colorize
+        # zgen oh-my-zsh plugins/tmux
+        zgen oh-my-zsh plugins/git
+        zgen oh-my-zsh plugins/github
+        # zgen load unixorn/git-extra-commands
+
+        zgen oh-my-zsh plugins/python
+        # Load more completion files for zsh from the zsh-lovers github repo
+        zgen load zsh-users/zsh-completions src
+
+        zgen load chrissicool/zsh-256color
+
+        # Very cool plugin that generates zsh completion functions for commands
+        # if they have getopt-style help text. It doesn't generate them on the fly,
+        # you'll have to explicitly generate a completion, but it's still quite cool.
+        zgen load RobSis/zsh-completion-generator
+
+        # Add Fish-like autosuggestions to your ZSH
+        zgen load zsh-users/zsh-autosuggestions
+
+        # k is a zsh script / plugin to make directory listings more readable,
+        # adding a bit of color and some git status information on files and directories
+        # zgen load rimraf/k
+        zgen load supercrabtree/k
+        zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
+        zgen load esc/conda-zsh-completion
+        # fpath+="$ZGEN_HOME/esc/conda-zsh-completion-master"
+        # compinit conda
+
+        zgen save
+
+        alias k="k -h"
+
+        expand-or-complete-with-dots() {
+            echo -n "\e[31m...\e[0m"
+            zle expand-or-complete
+            zle redisplay
+        }
+        zle -N expand-or-complete-with-dots
+        bindkey "^I" expand-or-complete-with-dots
+
+        # export TERM=rxvt
+
+    fi
+fi
+
+
+# If we are not on a remote web server.
+if [[ ! "$HOST" == *-ma ]]; then
+
+    export CARGO_HOME="/opt/usr/.cargo"
+
+    if [[ ! -s $CARGO_HOME/env ]]; then
+        echo "[Rust] Would you like to install Rust? [Y/n]: \c"
+        read line
+        if [[ "$line" == Y* ]] || [[ "$line" == y* ]] || [ -z "$line" ]; then
+            echo "Setting up Cargo"
+            mkdir -p $CARGO_HOME
+	    	mkdir -p /opt/usr/.rustup
+#            sudo chown -R $USER:developers $CARGO_HOME
+#            sudo chmod -R ug+rw $CARGO_HOME
+#            sudo chmod -R o-w $CARGO_HOME
+
+            mkdir -p /opt/usr/.rustup
+			mkdir -p /opt/usr/.cargo
+			ln -s /opt/usr/.cargo ~/.cargo
+			ln -s /opt/usr/.rustup ~/.rustup
+
+			mkdir -p ~/.zfunc
+			bash ~/junk/repo/bearded-happiness/rust/rust_install.sh
+
+            source $HOME/.cargo/env
+
+        fi
+    fi
+fi
+
+# Rust exports
+if [[ -s $CARGO_HOME/env ]]; then
+	export CARGO_INCREMENTAL=1
+    source $CARGO_HOME/env
+    fpath+=~/.zfunc
+    export LD_LIBRARY_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib:$LD_LIBRARY_PATH"
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
+fi
+
+# eval "$(register-python-argcomplete conda)"
+fpath+=~/.oh-my-zsh/plugins/conda-zsh-completion
+compinit conda
+
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# export BULLETTRAIN_VIRTUALENV_PREFIX="\e680"
+
+# . /etc/profile.d/vte.sh
+# . /etc/profile.d/vte-2.91.sh
+
+# activate zsh-syntax-highlighting
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export BULLETTRAIN_PROMPT_ORDER=(time status custom dir virtualenv git cmd_exec_time)
+export BULLETTRAIN_VIRTUALENV_BG="green"
+export BULLETTRAIN_VIRTUALENV_FG="black"
+# export BULLETTRAIN_DIR_BG="cyan"
+# export BULLETTRAIN_DIR_FG="black"
+
+# Terminix issue Fix
+if [[ $TILIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+fi
+
+
+#export NVM_DIR="$HOME/.nvm"
+#export NVM_DIR="/opt/usr/.nvm"
+function ignite_node() { [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion ;}  # This loads nvm 
+# nvm bash completion
+# [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+#nvm use --delete-prefix v9.4.0 --silent
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+#bind -x '"\C-p": vim $(fzf);'
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# Base16 Monokai
+# Author: Wimer Hazenberg (http://www.monokai.nl)
+_gen_fzf_default_opts() {
+    local color00='#272822'
+    local color01='#383830'
+    local color02='#49483e'
+    local color03='#75715e'
+    local color04='#a59f85'
+    local color05='#f8f8f2'
+    local color06='#f5f4f1'
+    local color07='#f9f8f5'
+    local color08='#f92672'
+    local color09='#fd971f'
+    local color0A='#f4bf75'
+    local color0B='#a6e22e'
+    local color0C='#a1efe4'
+    local color0D='#66d9ef'
+    local color0E='#ae81ff'
+    local color0F='#cc6633'
+
+    export FZF_DEFAULT_OPTS="
+      --height 40% --border
+      --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+      --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+      --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+    "
+}
+
+_gen_fzf_default_opts
+
+
+# Nvidia CUDA exports
+export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+# export CUDA_HOME='$HOME/junk/cuda/'
+

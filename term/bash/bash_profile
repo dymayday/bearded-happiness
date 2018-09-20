@@ -1,0 +1,11 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+export PATH="/opt/usr/.cargo/bin:$PATH"
+
+
+#export CONDA_HOME="/opt/usr/anaconda3"
+#export PYTHON_ENV="maelstrom"

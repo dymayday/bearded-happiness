@@ -1,0 +1,49 @@
+if [ -f ~/.profile ]; then
+	. ~/.profile
+fi
+
+# Package wrapper.
+alias update-system="yaourt -Syua"
+alias clean-pacman-cache="sudo pacman -Sc ; sudo paccache -rk1"
+#alias update-system="yay -Syu"
+alias dsf="git diff --color "$@" | diff-so-fancy"
+alias tmux='tmux -2'
+alias e="exa -lg"
+alias ea="exa -lag"
+alias yzic="youtube-dl -xi -f bestaudio --audio-format mp3 --embed-thumbnail --add-metadata "
+alias aria4="aria2c -j4 -s4 -x4 -c"
+alias aria8="aria2c -j8 -s8 -x8 -c"
+alias vcp='rsync --info=progress2 -Wh -a'
+alias vcpdry='rsync --progress -Whn -a'
+
+# Rust aliases
+#alias cargo="RUSTFLAGS='-C target-cpu=native' CARGO_INCREMENTAL=1 TERM=xterm-color cargo"
+alias cargo="CARGO_INCREMENTAL=1 TERM=xterm-color cargo"
+alias update-rust="bash ~/junk/repo/bearded-happiness/rust/rust_update.sh"
+alias reset_rust="rm -rf ~/.cargo/* ~/.rustup/* ~/.multirust/* ; ~/junk/repo/bearded-happiness/rust/rust_install.sh ; update-neovim"
+
+# Python aliases
+alias ignite_python=". $CONDA_HOME/etc/profile.d/conda.sh && conda activate ${PYTHON_ENV} && export VIRTUAL_ENV='${CONDA_HOME}/envs/${PYTHON_ENV}'"
+alias mount_remote_fs="ignite_python && ~/scripts/sshfs_mount.py"
+alias pylab="/usr/bin/env ipython3 --pylab --TerminalInteractiveShell.history_length=1000000 --TerminalInteractiveShell.history_load_length=1000000 --no-confirm-exit --autocall=1"
+
+# SSH aliases
+alias sshco="~/scripts/sshco.sh"
+
+# Git aliases
+alias tst="tig status"
+
+# NeoVim part
+alias nv="nvim"
+alias neovimconfig="nvim ~/.config/nvim/init.vim"
+alias update-neovim="nvim +PlugClean +qa && nvim +PlugInstall +UpdateRemotePlugins +qa && nvim +PlugUpdate +UpdateRemotePlugins +qa"
+alias reset-neovim='rm -rf ~/.config/nvim/plugged && update-neovim && sed -ie "s\\hi! link Operator Normal\\hi! link Operator GruvboxBlueBold\\g" ~/.config/nvim/plugged/gruvbox/colors/gruvbox.vim'
+alias update-vim="vim +PlugClean +qall && vim +PlugInstall +UpdateRemotePlugins +qall && vim +PlugUpdate +UpdateRemotePlugins +qall"
+
+# Git aliases
+alias gdf="git diff"
+
+# Docker & MA
+alias wipe_docker='docker-compose rm -fsv ; docker rm "$(docker ps -aq)" ; docker rmi "$(docker images -q)"'
+alias ignite_docker="sudo systemctl restart postgresql.service && sudo systemctl restart docker.service"
+alias launch_ma="ignite_docker && cx $HOME/junk/repo/metocean-analytics && docker-compose up"
