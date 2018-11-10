@@ -179,7 +179,7 @@ set scrolloff=1   " Always show at least one line above/below the cursor
 
 " Map leader to '<' and ',' as well
 map , <leader>
-map < <leader>
+" map < <leader>
 
 " Copy to clipboard
 nnoremap  <leader>y  "+y
@@ -197,6 +197,9 @@ autocmd FileType rust nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
 autocmd FileType rust imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
 autocmd FileType rust imap <silent> <Leader>o <c-o><Plug>(cosco-commaOrSemiColon)<ESC>o
 autocmd FileType rust nmap <silent> <Leader>o <Plug>(cosco-commaOrSemiColon)<ESC>o
+
+" Run Rust program by pressing F4
+nmap <F4> :Cargo run<CR>
 
 set backup
 set backupdir=$HOME/.vim.backup
@@ -276,7 +279,8 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'python': ['/home/home/junk/anaconda/envs/maelstrom/bin/pyls'],
     \ }
-"let g:deoplete#sources.rust = ['LanguageClient']
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources.rust = ['LanguageClient']
 " let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
 " let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 " "let g:deoplete#sources#rust#disable_keymap=1
