@@ -21,7 +21,7 @@ Plug 'Shougo/unite-outline'
 Plug 'tacahiroy/ctrlp-funky'
 
 " Show parameter doc.
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/echodoc.vim'
 
 " Auto insert semi colon at the end of Rust file YaY ! =]
 Plug 'tpope/vim-repeat'
@@ -47,7 +47,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'luochen1990/rainbow'
 
 " Add beautifull bookmarks
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 
 " Autocomplete plugin
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -59,13 +59,13 @@ Plug 'roxma/nvim-yarp'
 
 " Snippers support
 " Track the engine
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. So we need to add this:
-Plug 'honza/vim-snippets'
-Plug 'ncm2/ncm2-ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'ncm2/ncm2-ultisnips'
 
 Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-jedi'
 " Commenting out this one because it create duplicate entry with RLS.
 " Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-bufword'
@@ -77,10 +77,10 @@ Plug 'ncm2/ncm2-match-highlight'
 Plug 'sheerun/vim-polyglot'
 
 " Rust
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'make release',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'make release',
+"     \ }
 " Plug 'sebastianmarkow/deoplete-rust'
 Plug 'rust-lang/rust.vim'
 
@@ -88,10 +88,10 @@ Plug 'rust-lang/rust.vim'
 " Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 " Just to add the python go-to-definition and similar features, autocompletion
 " from this plugin is disabled
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 
 " Linter
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 
 " Multi-entry selection UI.
@@ -213,27 +213,6 @@ nnoremap <F9> :NumbersToggle<CR>
 let g:enable_numbers = 0
 
 
-" ctags configuration
-" autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-" autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
-
-" TagBar setup
-" nmap <F8> :TagbarToggle<CR>
-" let g:tagbar_type_rust = {
-"     \ 'ctagstype' : 'rust',
-"     \ 'kinds' : [
-"         \'T:types,type definitions',
-"         \'f:functions,function definitions',
-"         \'g:enum,enumeration names',
-"         \'s:structure names',
-"         \'m:modules,module names',
-"         \'c:consts,static constants',
-"         \'t:traits',
-"         \'i:impls,trait implementations',
-"         \]
-"     \}
-
-
 " ctrlp-funky is a TagBar alternat using CtrlP
 let g:ctrlp_funky_syntax_highlight = 1
 " This allows you to switch to no-limit mode.
@@ -275,19 +254,6 @@ let g:LanguageClient_selectionUI = "fzf"
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'python': ['/home/home/junk/anaconda/envs/maelstrom/bin/pyls'],
-    \ }
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources.rust = ['LanguageClient']
-" let g:deoplete#sources#rust#racer_binary='/home/home/.cargo/bin/racer'
-" let g:deoplete#sources#rust#rust_source_path='/home/home/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-" "let g:deoplete#sources#rust#disable_keymap=1
-" "let g:deoplete#sources#rust#documentation_max_height=75
-" let g:deoplete#sources#rust#show_duplicates = 0
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
 " Completion manager settings.
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -302,39 +268,9 @@ let g:ncm2#complete_length = 1
 
 
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
-" nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
-" nmap <silent> <M-x> <plug>DeopleteRustShowDocumentation
-" imap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
-nnoremap <silent> <M-f> :call LanguageClient_textDocument_formatting()<CR>
-nnoremap <silent> <M-l> :call LanguageClient_textDocument_rangeFormatting()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-
-" Toggle the lint panel
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
-function! QFixToggle(forced)
-  if exists("g:qfix_win") && a:forced == 0
-    cclose
-    unlet g:qfix_win
-  else
-    copen 10
-    let g:qfix_win = bufnr("$")
-  endif
-endfunction
-" And map it
-nnoremap <F3> : <C-u> QFix <CR>
-
 " Switch back and forth from panel to panel
 nnoremap <Tab> <c-w>w
 
-" Use deoplete.
-" let g:python_host_prog="/home/home/junk/anaconda/envs/py2/bin/python"
-" let g:python3_host_prog="/home/home/junk/anaconda/envs/maelstrom/bin/python3.6"
-" let g:deoplete#sources#jedi#python_path = '/home/home/junk/anaconda/envs/maelstrom/bin/python'
-" let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = "<c-n>"
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
