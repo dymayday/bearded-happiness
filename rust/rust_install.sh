@@ -27,6 +27,6 @@ done
 
 rustup default nightly
 
-cargo install -j7 --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly
-RUSTFLAGS="-C target-cpu=native" cargo install -j7 --force ripgrep --features 'simd-accel avx-accel'
+cargo install -j7 --force cargo-update fd-find exa tealdeer skim bat 
+RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel avx-accel'
 tldr -u
