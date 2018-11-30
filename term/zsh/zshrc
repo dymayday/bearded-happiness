@@ -29,6 +29,9 @@ else
   export EDITOR='nvim'
 fi
 
+if [[ ! -d $HOME/.vim.backup ]]; then
+    mkdir -p $HOME/.vim.backup
+fi
 export EDITOR="$(if [[ -f /usr/bin/nvim ]]; then echo 'nvim'; else echo 'vim'; fi)"
 
 
