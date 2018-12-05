@@ -226,7 +226,11 @@ compinit conda
 # activate zsh-syntax-highlighting
 # source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export BULLETTRAIN_PROMPT_ORDER=(time status custom dir virtualenv git cmd_exec_time)
+if [[ "$SSH_CONNECTION" ]]; then
+    export BULLETTRAIN_PROMPT_ORDER=(time context status custom dir virtualenv git cmd_exec_time)
+else
+    export BULLETTRAIN_PROMPT_ORDER=(time status custom dir virtualenv git cmd_exec_time)
+fi
 export BULLETTRAIN_VIRTUALENV_BG="green"
 export BULLETTRAIN_VIRTUALENV_FG="black"
 # export BULLETTRAIN_DIR_BG="cyan"
