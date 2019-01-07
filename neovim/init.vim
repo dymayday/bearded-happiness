@@ -46,8 +46,14 @@ Plug 'Raimondi/delimitMate'
 " Color parenthesis and such
 Plug 'luochen1990/rainbow'
 
+" Highlight the word under the cursor
+Plug 'RRethy/vim-illuminate'
+
+" Pulses every time you scroll the search results
+Plug 'inside/vim-search-pulse'
+
 " Add beautifull bookmarks
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 
 " Autocomplete plugin
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -89,6 +95,9 @@ Plug 'rust-lang/rust.vim'
 " Just to add the python go-to-definition and similar features, autocompletion
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
+
+" Provides semantic highlighting for Python in Neovim.
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " Linter
 Plug 'w0rp/ale'
