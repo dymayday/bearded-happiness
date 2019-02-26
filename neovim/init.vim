@@ -275,6 +275,9 @@ autocmd FileType python let g:LanguageClient_diagnosticsEnable=0
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_selectionUI = "fzf"
+" Disable this annoying virtual text rendering on each line of the editor
+" as we type.
+let g:LanguageClient_useVirtualText = 0
 
 " call deoplete#custom#source(
 "             \ 'LanguageClient',
