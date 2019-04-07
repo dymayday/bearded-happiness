@@ -46,6 +46,9 @@ Plug 'Raimondi/delimitMate'
 " Color parenthesis and such
 Plug 'luochen1990/rainbow'
 
+" Rgb Color highlighter
+Plug 'lilydjwg/colorizer'
+
 " Highlight the word under the cursor
 Plug 'RRethy/vim-illuminate'
 
@@ -89,6 +92,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 " Plug 'sebastianmarkow/deoplete-rust'
 Plug 'rust-lang/rust.vim'
+
+" Ethereum integration.
+" Plug 'tomlion/vim-solidity'
 
 " Python
 " Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
@@ -188,6 +194,8 @@ set scrolloff=1   " Always show at least one line above/below the cursor
 
 " Map leader to '<' and ',' as well
 map , <leader>
+map ; <leader>
+map <space> <leader>
 " map < <leader>
 
 " Copy to clipboard
@@ -264,6 +272,13 @@ nmap <F6> :RainbowToggle<CR>
 " Auto-Pairs settings.
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<M-b>'
+" " Workaround for ncm2 + auto-pairs
+" let g:AutoPairsMapCR=0
+" inoremap <silent> <Plug>(MyCR) <CR><C-R>=AutoPairsReturn()<CR>
+" " example
+" imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(MyCR)" : "\<Plug>(MyCR)")
+" " if you're using ncm2_snipmate
+" " inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<Plug>(MyCR)", 'im')
 
 
 
@@ -278,6 +293,7 @@ let g:LanguageClient_selectionUI = "fzf"
 " Disable this annoying virtual text rendering on each line of the editor
 " as we type.
 let g:LanguageClient_useVirtualText = 0
+let g:LanguageClient_completionPreferTextEdit = 1
 
 " call deoplete#custom#source(
 "             \ 'LanguageClient',
@@ -315,7 +331,7 @@ let g:ncm2#complete_length = 1
 
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <M-q> :call LanguageClient_textDocument_hover()<CR>
 " nmap <buffer> <M-x> <plug>DeopleteRustShowDocumentation
 " nmap <silent> <M-x> <plug>DeopleteRustShowDocumentation
@@ -350,9 +366,9 @@ nnoremap <Tab> <c-w>w
 let g:SuperTabDefaultCompletionType = "<c-n>"
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_completion_start_length = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#auto_completion_start_length = 1
 
 " Python settings
 " Disable autocompletion (using deoplete instead)
