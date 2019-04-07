@@ -23,11 +23,12 @@ for toolchain in "${toolchain_arr[@]}"; do
     rustup component add rust-src --toolchain $toolchain
     rustup component add rustfmt-preview --toolchain $toolchain
     rustup component add clippy-preview --toolchain $toolchain
+    rustup target add wasm32-unknown-unknown --toolchain $toolchain
 done
 
 rustup default nightly
 
 cargo install -j7 --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly \
-    systemfd cargo-watch ripgrep cargo-tree cargo-updated
+    systemfd cargo-watch ripgrep cargo-tree cargo-updated cargo-edit
 RUSTFLAGS="-C target-cpu=native" cargo install -j7 --force ripgrep --features 'simd-accel avx-accel'
 tldr -u
