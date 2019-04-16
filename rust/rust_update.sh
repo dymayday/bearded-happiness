@@ -6,4 +6,4 @@ cargo install-update racer rusty-tags cargo-update mdbook fd-find \
     systemfd cargo-watch ripgrep cargo-tree cargo-updated \
     cargo-edit
 # RUSTFLAGS="-C target-cpu=native" cargo install -j7 --force ripgrep --features 'simd-accel avx-accel pcre2'
-tldr -u
+# tldr -u
