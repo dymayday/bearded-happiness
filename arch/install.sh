@@ -33,3 +33,5 @@ pacaur --noconfirm -Syyu firefox-nightly neovim
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+# zsh
+chsh -s /usr/bin/zsh
