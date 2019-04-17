@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# szh
+chsh -s /usr/bin/zsh
+
 # Setting up desktop
-sudo pacman -Syyu
+#sudo pacman --noconfirm -Syyu
 sudo pacman -S --needed base-devel
 sudo pacman --noconfirm -Syyu deepin deepin-extra gnome gnome-extra pamac vim
 
@@ -34,7 +37,7 @@ Server = https://mirror.repohost.de/$repo
 # Setting up AUR manager
 sudo pamac -Syy pacaur yaourt
 
-yaourt --noconfirm -Syyu qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux
+yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux visual-studio-code-insiders
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
