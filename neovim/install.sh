@@ -16,3 +16,7 @@ sed -ie "s\\hi! link Operator Normal\\hi! link Operator GruvboxBlueBold\\g" ~/.c
 cp ctrlp/funky/ft/rust.vim ~/.config/nvim/plugged/ctrlp-funky/autoload/ctrlp/funky/ft/rust.vim
 
 cp ctags ~/.ctags
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp vimrc ~/.vimrc
