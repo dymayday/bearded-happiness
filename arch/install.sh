@@ -10,26 +10,26 @@ echo ">> WARN - You're supposed to have install proprietary driver."
 sudo gpasswd -a $USER bumblebee
 
 # Swapping management
-sudo echo "vm.swappiness=100" > /etc/sysctl.d/99-sysctl.conf 
+echo "vm.swappiness=100" | sudo tee -a /etc/sysctl.d/99-sysctl.conf 
 
 # Signed AUR handler
 ## disastrousaur
 sudo pacman-key --recv-keys CBAE582A876533FD
 pacman-key --finger CBAE582A876533FD
 sudo pacman-key --lsign-key CBAE582A876533FD
-sudo echo "
+echo "
 [andontie-aur]
 Server = https://aur.andontie.net/$arch
-" >> /etc/pacman.conf
+" | sudo tee -a /etc/pacman.conf
 
 ## andontie-aur
 sudo pacman-key --recv-keys EA50C866329648EE
 pacman-key --finger EA50C866329648EE
 sudo pacman-key --lsign-key EA50C866329648EE
-sudo echo "
+echo "
 [disastrousaur]
 Server = https://mirror.repohost.de/$repo
-" >> /etc/pacman.conf
+" | sudo tee -a /etc/pacman.conf
 
 # Setting up AUR manager
 sudo pamac install pacaur yaourt
