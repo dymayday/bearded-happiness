@@ -34,7 +34,7 @@ Server = https://mirror.repohost.de/$repo
 # Setting up AUR manager
 sudo pamac -Syy pacaur yaourt
 
-yaourt --noconfirm -Syyu qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip
+yaourt --noconfirm -Syyu qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
