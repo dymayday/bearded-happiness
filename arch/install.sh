@@ -3,7 +3,7 @@
 # Setting up desktop
 sudo pacman -Syyu
 sudo pacman -S --needed base-devel
-sudo pacman -Syyu deepin deepin-extra gnome gnome-extra pamac vim
+sudo pacman --noconfirm -Syyu deepin deepin-extra gnome gnome-extra pamac vim
 
 # Nvidia Bumblebee setup
 echo ">> WARN - You're supposed to have install proprietary driver."
