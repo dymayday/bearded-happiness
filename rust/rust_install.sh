@@ -1,6 +1,9 @@
 #!/bin/bash
 #curl https://sh.rustup.rs -sSf | sh
 
+echo '[build]
+rustflags = "-C target-cpu=native"' >> $HOME/.cargo/config
+
 declare -a toolchain_arr=("stable" "beta" "nightly")
 
 curl https://sh.rustup.rs -sSf > /tmp/rustup-init.sh
@@ -28,7 +31,7 @@ done
 
 rustup default nightly
 
-cargo install -j7 --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly \
+cargo install --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly \
     systemfd cargo-watch ripgrep cargo-tree cargo-updated cargo-edit
-RUSTFLAGS="-C target-cpu=native" cargo install -j7 --force ripgrep --features 'simd-accel avx-accel'
+RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
 tldr -u
