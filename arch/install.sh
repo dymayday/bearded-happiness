@@ -5,6 +5,10 @@ sudo pacman -Syyu
 sudo pacman -S --needed base-devel
 sudo pacman -Syyu deepin deepin-extra gnome gnome-extra pamac
 
+# Nvidia Bumblebee setup
+echo ">> WARN - You're supposed to have install proprietary driver."
+sudo gpasswd -a $USER bumblebee
+
 # Signed AUR handler
 ## disastrousaur
 sudo pacman-key --recv-keys CBAE582A876533FD
