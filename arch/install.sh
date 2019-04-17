@@ -3,7 +3,7 @@
 # Setting up desktop
 sudo pacman -Syyu
 sudo pacman -S --needed base-devel
-sudo pacman -Syyu deepin deepin-extra gnome gnome-extra pamac
+sudo pacman -Syyu deepin deepin-extra gnome gnome-extra pamac vim
 
 # Nvidia Bumblebee setup
 echo ">> WARN - You're supposed to have install proprietary driver."
@@ -34,8 +34,7 @@ Server = https://mirror.repohost.de/$repo
 # Setting up AUR manager
 sudo pamac -Syy pacaur yaourt
 
-yaourt --noconfirm -Syy qogir-gtk-theme-git osx-arc-darker chromium
-pacaur --noconfirm -Syyu firefox-nightly neovim
+yaourt --noconfirm -Syyu qogir-gtk-theme-git osx-arc-darker chromium firefox-nightly neovim nerd-fonts-complete nerd-fonts-source-code-pro 
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
