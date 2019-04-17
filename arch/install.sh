@@ -9,6 +9,9 @@ sudo pacman -Syyu deepin deepin-extra gnome gnome-extra pamac
 echo ">> WARN - You're supposed to have install proprietary driver."
 sudo gpasswd -a $USER bumblebee
 
+# Swapping management
+sudo echo "vm.swappiness=100" > /etc/sysctl.d/99-sysctl.conf 
+
 # Signed AUR handler
 ## disastrousaur
 sudo pacman-key --recv-keys CBAE582A876533FD
