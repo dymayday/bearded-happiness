@@ -10,7 +10,7 @@ echo ">> WARN - You're supposed to have install proprietary driver."
 sudo gpasswd -a $USER bumblebee
 
 # Swapping management
-echo "vm.swappiness=100" | sudo tee -a /etc/sysctl.d/99-sysctl.conf 
+echo "vm.swappiness=100" | sudo tee -a /etc/sysctl.d/99-sysctl.conf
 
 # Signed AUR handler
 ## disastrousaur
