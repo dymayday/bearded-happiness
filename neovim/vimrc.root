@@ -1,0 +1,194 @@
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+filetype off
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+" Add fancy icons to NerdTree
+" Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'wincent/terminus'
+Plug 'ervandew/supertab'
+
+
+" LANGUAGE SUPPORT
+" Automatically close parenthesis, etc
+" Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+
+" Color parenthesis and such
+Plug 'luochen1990/rainbow'
+
+" Rgb Color highlighter
+Plug 'lilydjwg/colorizer'
+
+" Highlight the word under the cursor
+Plug 'RRethy/vim-illuminate'
+
+" Pulses every time you scroll the search results
+Plug 'inside/vim-search-pulse'
+
+" Multi-entry selection UI.
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'ctrlpvim/ctrlp.vim'
+" This is an extension for the awesome vim CtrlP plugin.
+Plug 'fisadev/vim-ctrlp-cmdpalette'
+
+
+" Some pretty things
+" Airline theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Color themes
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
+
+" A plugin to color colornames and codes
+Plug 'chrisbra/Colorizer'
+
+
+call plug#end()
+filetype on
+
+"let g:gruvbox_improved_strings = 1
+"let g:gruvbox_improved_warnings = 1
+
+
+let base16colorspace=256 " Access colors present in 256 colorspace
+" Activating color theme
+set background=dark      " Setting dark mode
+"set background=light    " Setting light mode
+set termguicolors 		 " This is needed for quit some recent theme nowadays
+let g:gruvbox_contrast_dark = 'medium' "Possible values: soft, medium and hard
+silent! colorscheme onedark
+" silent! colorscheme gruvbox
+
+" Airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='deus'
+"let g:airline_theme='bubblegum'
+
+
+" Select commands to be executed by default
+let g:ctrlp_cmdpalette_execute = 1
+
+" Set the cmd height for a better echodoc integration
+let g:echodoc#enable_at_startup = 1
+set cmdheight=1
+
+
+" Common settings
+set tabstop=4     " a tab is four spaces
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set number        " always show line numbers
+set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to
+                  "    shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set history=10000 " remember more commands and search history
+set undolevels=1000 " use many muchos levels of undo
+set title         " change the terminal's title
+set mouse=a
+" let mapleader="<"   " change leader key from '\' to '<'
+set timeout timeoutlen=2000
+set showcmd       " Show (partial) command in status line.
+set noshowmode    " get rid of -- INSERT --
+set hidden        " Hide buffers when they are abandoned
+set expandtab     " Uses space instead of tabs
+set scrolloff=1   " Always show at least one line above/below the cursor
+"set wildmenu
+"set wildmode=longest,list:full
+
+" Map leader to '<' and ',' as well
+map , <leader>
+map ; <leader>
+map <space> <leader>
+" map < <leader>
+
+" Copy to clipboard
+nnoremap  <leader>y  "+y
+vnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p  "+p
+vnoremap <leader>p  "+p
+
+set backup
+set backupdir=$HOME/.vim.backup
+
+if !has('gui_running')
+      set t_Co=256
+endif
+
+" numbers.vim settings - Toggle relative line numbering
+nnoremap <F9> :NumbersToggle<CR>
+let g:enable_numbers = 0
+
+" NERDTree config
+nmap <F7> :NERDTreeToggle<CR>
+" Auto close NERDTree when left alone
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
+
+" Rainbow parenthesis toggle.
+nmap <F6> :RainbowToggle<CR>
+
+" Auto-Pairs settings.
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
+" Switch back and forth from panel to panel
+nnoremap <Tab> <c-w>w
+
+" CtrlP settings
+"let g:ctrlp_map = ''
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" Vim-CtrlP-CmdPalette settings
+let g:ctrlp_cmdpalette_execute = 1
+
+"nmap <m-p> :CtrlPCmdPalette<CR>
+nmap <M-p> :CtrlPCmdPalette<CR>
+" Open file menu
+" nnoremap <Leader>o :CtrlP<CR>
+" Open buffer menu
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" Open most recently used files
+nnoremap <Leader>f :CtrlPMRUFiles<CR>
+
+" fzf settings
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+"let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
+"let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
+let g:ctrlp_user_command = 'fd --type f'
+
