@@ -32,7 +32,7 @@ Server = https://mirror.repohost.de/$repo
 " | sudo tee -a /etc/pacman.conf
 
 # Setting up AUR manager
-sudo pamac install pacaur yaourt
+sudo pamac -Syy pacaur yaourt
 
 yaourt --noconfirm -Syy qogir-gtk-theme-git osx-arc-darker chromium
 pacaur --noconfirm -Syyu firefox-nightly neovim
