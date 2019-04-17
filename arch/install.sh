@@ -35,3 +35,6 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 
 # zsh
 chsh -s /usr/bin/zsh
+cp ../term/zsh/zshrc2 $HOME/.zshrc
+cp ../term/zsh/zsh_theme $HOME/.zsh_theme
+cp ../term/zsh/bashrc2 $HOME/.bashrc
