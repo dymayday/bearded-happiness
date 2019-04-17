@@ -145,7 +145,7 @@ set background=dark      " Setting dark mode
 "set background=light    " Setting light mode
 set termguicolors 		 " This is needed for quit some recent theme nowadays
 let g:gruvbox_contrast_dark = 'medium' "Possible values: soft, medium and hard
-colorscheme onedark
+" colorscheme onedark
 colorscheme gruvbox
 
 " Airline settings
