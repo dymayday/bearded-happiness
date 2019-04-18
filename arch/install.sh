@@ -37,7 +37,7 @@ Server = https://mirror.repohost.de/$repo
 # Setting up AUR manager
 sudo pamac -Syy pacaur yaourt
 
-yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux visual-studio-code-insiders
+yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux visual-studio-code-insiders fzf
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -45,10 +45,11 @@ base16_monokai
 
 # zsh
 chsh -s /usr/bin/zsh
-cp ../term/zsh/zshrc2 $HOME/.zshrc
-cp ../term/zsh/zsh_theme $HOME/.zsh_theme
-cp ../term/bash/bashrc $HOME/.bashrc
-cp ../term/bash/bash_aliases2 $HOME/.bash_aliases
+echo "Sould be launched from root repository."
+cp term/zsh/zshrc2 $HOME/.zshrc
+cp term/zsh/zsh_theme $HOME/.zsh_theme
+cp term/bash/bashrc $HOME/.bashrc
+cp term/bash/bash_aliases2 $HOME/.bash_aliases
 
 # SSH key
 ssh-keygen -t rsa -b 4096
