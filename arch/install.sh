@@ -50,6 +50,8 @@ cp term/zsh/zshrc2 $HOME/.zshrc
 cp term/zsh/zsh_theme $HOME/.zsh_theme
 cp term/bash/bashrc $HOME/.bashrc
 cp term/bash/bash_aliases2 $HOME/.bash_aliases
+( cd && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower )
+mv ~/.purepower ~/.config/purepower
 
 # SSH key
 ssh-keygen -t rsa -b 4096
