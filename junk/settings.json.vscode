@@ -1,0 +1,51 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 0,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true,
+        "suppressWelcomeNotice": true
+    },
+    "[rust]": {
+        // "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+    },
+    "rust.all_features": true,
+    "rust.clippy_preference": "on",
+    "rust.target_dir": "target/rls",
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Darker",
+        "accent": "Blue",
+        "accentPrevious": "Acid Lime"
+    },
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#2979FF",
+        "list.activeSelectionForeground": "#2979FF",
+        "list.inactiveSelectionForeground": "#2979FF",
+        "list.highlightForeground": "#2979FF",
+        "scrollbarSlider.activeBackground": "#2979FF50",
+        "editorSuggestWidget.highlightForeground": "#2979FF",
+        "textLink.foreground": "#2979FF",
+        "progressBar.background": "#2979FF",
+        "pickerGroup.foreground": "#2979FF",
+        "tab.activeBorder": "#2979FF"
+    },
+    "gitlens.keymap": "chorded",
+    "editor.fontSize": 12,
+    "explorer.confirmDragAndDrop": false,
+    "editor.cursorBlinking": "phase",
+    "editor.renderLineHighlight": "gutter",
+    "editor.minimap.showSlider": "always",
+    "gitlens.historyExplorer.enabled": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "explorer.confirmDelete": false,
+    "terminal.integrated.rendererType": "dom",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "terminal.integrated.fontSize": 12
+}
