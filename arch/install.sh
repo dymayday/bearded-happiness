@@ -60,3 +60,16 @@ ignite_node
 nvm i v8 && nvm i v10 && nvm i v11
 nvm alias default v11
 npm i -g diff-so-fancy gitmoji-cli neon-cli eslint tap-spec
+
+# GPU part
+echo "Dell XPS 15 - 9570 please see: https://wiki.archlinux.org/index.php/Dell_XPS_15_9570"
+## Suspend
+echo deep|sudo tee /sys/power/mem_sleep
+## dGPU
+echo "blacklist nouveau
+blacklist rivafb
+blacklist nvidiafb
+blacklist rivatv
+blacklist nv" | sudo tee /etc/modprobe.d/blacklist.conf
+echo "w /sys/bus/pci/devices/0000:01:00.0/power/control - - - - auto" | sudo tee /etc/tmpfiles.d/nvidia_pm.conf
+# And a few more on wiki link
