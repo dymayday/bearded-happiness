@@ -38,9 +38,10 @@ Server = https://mirror.repohost.de/$repo
 sudo pamac -Syy pacaur yaourt
 
 yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly \
-    neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro \
-    chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux \
-    visual-studio-code-insiders fzf tig engrampa unrar otf-fira-code
+    neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro tig \
+    chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux fzf \
+    visual-studio-code-insiders engrampa unrar otf-fira-code gparted \
+    youtube-dl
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
