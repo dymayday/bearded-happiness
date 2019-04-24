@@ -41,7 +41,7 @@ yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly \
     neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro tig \
     chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux fzf \
     visual-studio-code-insiders engrampa unrar otf-fira-code gparted \
-    youtube-dl
+    youtube-dl nmap
 
 # Theme install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
