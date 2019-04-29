@@ -40,7 +40,7 @@ sudo pamac -Syy pacaur yaourt
 yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly \
     neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro tig \
     chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux fzf \
-    visual-studio-code-insiders engrampa unrar otf-fira-code gparted \
+    visual-studio-code-insiders vscodium-bin engrampa unrar otf-fira-code gparted \
     youtube-dl nmap
 
 # Theme install
