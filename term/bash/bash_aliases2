@@ -2,8 +2,7 @@
 alias l='ls -lh'
 alias ll='ls -larth'
 alias lm='ls -larhS'
-alias update-system='yaourt -Syua'
-#alias update-system='yay -Syu'
+alias update-system='yay -Syu'
 alias rm='rm'
 alias zshconfig="$EDITOR $HOME/.zshrc"
 
