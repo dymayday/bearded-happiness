@@ -34,6 +34,6 @@ rustup target add wasm32-unknown-unknown
 
 
 cargo install --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly \
-    systemfd cargo-watch cargo-tree cargo-updated cargo-edit
+    systemfd cargo-watch cargo-tree cargo-updated cargo-edit hyperfine
 RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
 tldr -u
