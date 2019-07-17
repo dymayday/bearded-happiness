@@ -32,8 +32,13 @@ done
 rustup default nightly
 rustup target add wasm32-unknown-unknown
 
+# Get the directory path of the script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-cargo install --force racer rusty-tags cargo-update mdbook fd-find exa tealdeer skim bat #clippy rustfmt-nightly \
-    systemfd cargo-watch cargo-tree cargo-updated cargo-edit hyperfine
-RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
+# Get the list of rust crate to install
+packages=(`cat ${DIR}/packages.txt`)
+elements=$( IFS=$'\n'; echo "${packages[*]}" )
+
+cargo install $elements
+# RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
 tldr -u
