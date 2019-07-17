@@ -1,0 +1,17 @@
+racer
+rusty-tags
+cargo-update
+mdbook
+fd-find
+exa
+tealdeer
+skim
+bat
+systemfd
+cargo-watch
+cargo-tree
+cargo-updated
+cargo-edit
+hyperfine
+wasm-pack
+ripgrep
