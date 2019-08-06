@@ -120,7 +120,8 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Linter
 Plug 'w0rp/ale'
 
-
+" Search in multiple file in the directory using Rigrep
+Plug 'wincent/ferret'
 " Multi-entry selection UI.
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
