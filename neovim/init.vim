@@ -109,6 +109,8 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'w0rp/ale'
 
 
+" Search in multiple file in the directory using Rigrep
+Plug 'wincent/ferret'
 " Multi-entry selection UI.
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -258,7 +260,7 @@ let g:ctrlp_funky_nolim = 1
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
+nmap <F8> :CtrlPFunky<Cr>
 
 
 " NERDTree config
