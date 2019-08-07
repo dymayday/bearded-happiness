@@ -114,6 +114,7 @@ Plug 'wincent/ferret'
 " Multi-entry selection UI.
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plug 'ctrlpvim/ctrlp.vim'
 " This is an extension for the awesome vim CtrlP plugin.
@@ -444,6 +445,11 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split enew' }
+
+" Open FZF infile search tab using Ripgrep
+nnoremap <Leader>g :Rg<CR>
+" Open FZF tab
+nnoremap <Leader>f :FZF<CR>
 
 "let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
 "let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
