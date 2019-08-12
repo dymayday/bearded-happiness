@@ -447,9 +447,9 @@ let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split enew' }
 
 " Open FZF infile search tab using Ripgrep
-nnoremap <Leader>g :Rg<CR>
-" Open FZF tab
-nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>r :Rg<CR>
+" " Open FZF tab
+" nnoremap <Leader>f :FZF<CR>
 
 "let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
 "let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
