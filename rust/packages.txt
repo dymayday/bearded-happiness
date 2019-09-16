@@ -4,6 +4,7 @@ cargo-tree
 cargo-update
 cargo-updated
 cargo-watch
+cross
 exa
 fd-find
 hyperfine
