@@ -38,7 +38,7 @@ Server = https://mirror.repohost.de/$repo
 sudo pamac update
 sudo pamac install yay pacaur
 
-yaourt --noconfirm -Syyua qogir-gtk-theme-git osx-arc-darker firefox-nightly \
+yay --noconfirm -Syyu qogir-gtk-theme-git osx-arc-darker firefox-nightly \
     neovim python-neovim nerd-fonts-complete nerd-fonts-source-code-pro tig \
     chromium chrome-gnome-shell-git xclip zsh-syntax-highlighting tmux fzf \
     visual-studio-code-insiders vscodium-bin engrampa unrar otf-fira-code gparted \
