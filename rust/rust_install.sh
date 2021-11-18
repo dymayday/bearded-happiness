@@ -22,6 +22,7 @@ for toolchain in "${toolchain_arr[@]}"; do
     rustup component add rust-src --toolchain $toolchain
     rustup component add rust-analysis --toolchain $toolchain
     rustup component add rls-preview --toolchain $toolchain
+    rustup component add rust-analyzer-preview --toolchain $toolchain
     rustup component add rustfmt-preview --toolchain $toolchain
     rustup component add clippy-preview --toolchain $toolchain
     rustup target add wasm32-unknown-unknown --toolchain $toolchain
