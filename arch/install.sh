@@ -9,7 +9,7 @@ sudo pacman -S --needed base-devel
 sudo pacman --noconfirm -Syyu deepin deepin-extra gnome gnome-extra pamac vim
 
 # Nvidia Bumblebee setup
-echo ">> WARN - You're supposed to have install proprietary driver."
+echo ">> WARN - You're supposed to have installed proprietary driver."
 sudo gpasswd -a $USER bumblebee
 
 # Swapping management
