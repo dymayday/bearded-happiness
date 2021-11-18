@@ -64,8 +64,8 @@ ssh-keygen -t rsa -b 4096
 # Node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 ignite_node
-nvm i v8 && nvm i v10 && nvm i v11
-nvm alias default v11
+nvm i v8 && nvm i v10 && nvm i v16
+nvm alias default v16
 npm i -g diff-so-fancy gitmoji-cli neon-cli eslint tap-spec
 
 # GPU part
