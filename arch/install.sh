@@ -6,7 +6,7 @@ chsh -s /usr/bin/zsh
 # Setting up desktop
 #sudo pacman --noconfirm -Syyu
 sudo pacman -S --needed base-devel
-sudo pacman --noconfirm -Syyu deepin deepin-extra gnome gnome-extra pamac vim
+sudo pacman --noconfirm -Syyu gnome gnome-extra pamac vim
 
 # Nvidia Bumblebee setup
 echo ">> WARN - You're supposed to have installed proprietary driver."
