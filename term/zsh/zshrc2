@@ -110,9 +110,9 @@ else
     # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
     # Example format: plugins=(rails git textmate ruby lighthouse)
-    plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow virtualenv pyenv zsh-autosuggestions rust aws)
-    # plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow )
-
+    plugins=(git systemd colored-man colorize common-aliases cp rsync \
+        pip git-flow virtualenv pyenv zsh-autosuggestions rust tmux \
+        ripgrep)
     source $ZSH/oh-my-zsh.sh
 fi
 
