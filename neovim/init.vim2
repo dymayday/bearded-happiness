@@ -1,0 +1,616 @@
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+filetype off
+call plug#begin()
+
+Plug 'scrooloose/nerdtree'
+" Add fancy icons to NerdTree
+" Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
+
+" " Ouline viewer
+" Plug 'majutsushi/tagbar'
+
+" Obscure but powerfull plugins.
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/unite-outline'
+" TagBar alternat using CtrlP
+Plug 'tacahiroy/ctrlp-funky'
+
+" Show parameter doc.
+Plug 'Shougo/echodoc.vim'
+
+" Auto insert semi colon at the end of Rust file YaY ! =]
+Plug 'tpope/vim-repeat'
+Plug 'lfilho/cosco.vim'
+
+" Relative line number
+Plug 'myusuf3/numbers.vim'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+Plug 'wincent/terminus'
+Plug 'ervandew/supertab'
+
+
+" LANGUAGE SUPPORT
+" Automatically close parenthesis, etc
+" Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+
+" Color parenthesis and such
+Plug 'luochen1990/rainbow'
+
+" Rgb Color highlighter
+Plug 'lilydjwg/colorizer'
+
+" Highlight the word under the cursor
+Plug 'RRethy/vim-illuminate'
+
+" Pulses every time you scroll the search results
+Plug 'inside/vim-search-pulse'
+
+" Add beautifull bookmarks
+" Plug 'MattesGroeger/vim-bookmarks'
+
+" Autocomplete plugin
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Completetion manager. New and way better than deoplete
+Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+Plug 'roxma/nvim-yarp'
+
+" Snippers support
+" Track the engine
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. So we need to add this:
+Plug 'honza/vim-snippets'
+Plug 'ncm2/ncm2-ultisnips'
+
+Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-jedi'
+" " Commenting out this one because it create duplicate entry with RLS.
+" " Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+Plug 'ncm2/ncm2-match-highlight'
+
+" Better language packs
+Plug 'sheerun/vim-polyglot'
+
+" Rust
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'make release',
+"     \ }
+" " Plug 'sebastianmarkow/deoplete-rust'
+" Plug 'rust-lang/rust.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc-rls'
+" Plug 'ycm-core/YouCompleteMe'
+" " Plug 'racer-rust/vim-racer'
+" " Plug 'ncm2/ncm2-racer'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'simrat39/rust-tools.nvim'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Collection of common configurations for the Nvim LSP client
+Plug 'neovim/nvim-lspconfig'
+
+" Completion framework
+Plug 'hrsh7th/nvim-cmp'
+
+" LSP completion source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Snippet completion source for nvim-cmp
+Plug 'hrsh7th/cmp-vsnip'
+
+" Other usefull completion sources
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+
+" See hrsh7th's other plugins for more completion sources!
+
+" To enable more of the features of rust-analyzer, such as inlay hints and more!
+Plug 'simrat39/rust-tools.nvim'
+
+" Snippet engine
+Plug 'hrsh7th/vim-vsnip'
+
+" Fuzzy finder
+" Optional
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Color scheme used in the GIFs!
+" Plug 'arcticicestudio/nord-vim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" Ethereum integration.
+" Plug 'tomlion/vim-solidity'
+
+" Python
+" Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
+" Just to add the python go-to-definition and similar features, autocompletion
+" from this plugin is disabled
+" Plug 'davidhalter/jedi-vim'
+
+" Provides semantic highlighting for Python in Neovim.
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" Linter
+" Plug 'w0rp/ale'
+
+
+" " Search in multiple file in the directory using Rigrep
+" Plug 'wincent/ferret'
+" " Add Ripgrep capabiolity
+" Plug 'jremmen/vim-ripgrep'
+
+" Multi-entry selection UI.
+" Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" source /home/odin/.fzf/plugin/fzf.vim
+Plug 'junegunn/fzf.vim'
+
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'ctrlpvim/ctrlp.vim'
+" This is an extension for the awesome vim CtrlP plugin.
+Plug 'fisadev/vim-ctrlp-cmdpalette'
+
+
+" Some pretty things
+" Airline theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Color themes
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
+
+" A plugin to color colornames and codes
+Plug 'chrisbra/Colorizer'
+
+call plug#end()
+filetype on
+
+"let g:gruvbox_improved_strings = 1
+"let g:gruvbox_improved_warnings = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set completeopt to have a better completion experience
+" :help completeopt
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing extra messages when using completion
+set shortmess+=c
+
+" Configure LSP through rust-tools.nvim plugin.
+" rust-tools will configure and enable certain LSP features for us.
+" See https://github.com/simrat39/rust-tools.nvim#configuration
+lua <<EOF
+local nvim_lsp = require'lspconfig'
+
+local opts = {
+    tools = { -- rust-tools options
+        autoSetHints = true,
+        hover_with_actions = true,
+        inlay_hints = {
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+
+    -- all the opts to send to nvim-lspconfig
+    -- these override the defaults set by rust-tools.nvim
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+    server = {
+        -- on_attach is a callback called when the language server attachs to the buffer
+        -- on_attach = on_attach,
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+    },
+}
+
+require('rust-tools').setup(opts)
+EOF
+
+" Setup Completion
+" See https://github.com/hrsh7th/nvim-cmp#basic-configuration
+lua <<EOF
+local cmp = require'cmp'
+cmp.setup({
+  -- Enable LSP snippets
+  snippet = {
+    expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    -- Add tab support
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    })
+  },
+
+  -- Installed sources
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'path' },
+    { name = 'buffer' },
+  },
+})
+EOF
+
+" The built in neovim LSP combined with neovim features can format-on-write
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
+" have a fixed column for the diagnostics to appear in
+" this removes the jitter when warnings/errors flow in
+set signcolumn=yes
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+
+let base16colorspace=256 " Access colors present in 256 colorspace
+" Activating color theme
+set background=dark      " Setting dark mode
+"set background=light    " Setting light mode
+set termguicolors 		 " This is needed for quit some recent theme nowadays
+let g:gruvbox_contrast_dark = 'medium' "Possible values: soft, medium and hard
+
+" colorscheme gruvbox
+" autocmd FileType python colorscheme onedark
+" colorscheme onedark
+colorscheme gruvbox
+
+" Airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='deus'
+"let g:airline_theme='bubblegum'
+
+
+" Select commands to be executed by default
+let g:ctrlp_cmdpalette_execute = 1
+
+" Set the cmd height for a better echodoc integration
+let g:echodoc#enable_at_startup = 1
+set cmdheight=1
+
+
+" Common settings
+set tabstop=4     " a tab is four spaces
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set number        " always show line numbers
+set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to
+                  "    shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set history=10000 " remember more commands and search history
+set undolevels=1000 " use many muchos levels of undo
+set title         " change the terminal's title
+set mouse=a
+" let mapleader="<"   " change leader key from '\' to '<'
+set timeout timeoutlen=2000
+set showcmd       " Show (partial) command in status line.
+set noshowmode    " get rid of -- INSERT --
+set hidden        " Hide buffers when they are abandoned
+set expandtab     " Uses space instead of tabs
+set scrolloff=1   " Always show at least one line above/below the cursor
+"set wildmenu
+"set wildmode=longest,list:full
+
+" Map leader to '<' and ',' as well
+map , <leader>
+" map ; <leader>
+map <space> <leader>
+" map < <leader>
+
+" Copy to clipboard
+nnoremap  <leader>y  "+y
+vnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p  "+p
+vnoremap <leader>p  "+p
+
+" Auto insert semicolon using cosco
+let g:cosco_ignore_comment_lines = 1     " Default : 0
+"let g:auto_comma_or_semicolon = 1        " Default : 0, way too experimental
+let g:cosco_filetype_whitelist = ['rust']
+autocmd FileType rust nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon)
+autocmd FileType rust imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon)
+autocmd FileType rust imap <silent> <Leader>o <c-o><Plug>(cosco-commaOrSemiColon)<ESC>o
+autocmd FileType rust nmap <silent> <Leader>o <Plug>(cosco-commaOrSemiColon)<ESC>o
+
+" Run Rust program by pressing F4
+nmap <F4> :Cargo run<CR>
+
+set backup
+set backupdir=$HOME/.vim.backup
+
+if !has('gui_running')
+      set t_Co=256
+endif
+
+" numbers.vim settings - Toggle relative line numbering
+nnoremap <F9> :NumbersToggle<CR>
+let g:enable_numbers = 0
+
+
+" ctags configuration
+" autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+" autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
+" TagBar setup
+" nmap <F8> :TagbarToggle<CR>
+" let g:tagbar_type_rust = {
+"     \ 'ctagstype' : 'rust',
+"     \ 'kinds' : [
+"         \'T:types,type definitions',
+"         \'f:functions,function definitions',
+"         \'g:enum,enumeration names',
+"         \'s:structure names',
+"         \'m:modules,module names',
+"         \'c:consts,static constants',
+"         \'t:traits',
+"         \'i:impls,trait implementations',
+"         \]
+"     \}
+
+
+" ctrlp-funky is a TagBar alternat using CtrlP
+let g:ctrlp_funky_syntax_highlight = 1
+" This allows you to switch to no-limit mode.
+let g:ctrlp_funky_nolim = 1
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+" nmap <F8> :CtrlPFunky<Cr>
+
+
+" NERDTree config
+nmap <F7> :NERDTreeToggle<CR>
+" Auto close NERDTree when left alone
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
+
+" Rainbow parenthesis toggle.
+nmap <F6> :RainbowToggle<CR>
+
+" Auto-Pairs settings.
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+" " Workaround for ncm2 + auto-pairs
+" let g:AutoPairsMapCR=0
+" inoremap <silent> <Plug>(MyCR) <CR><C-R>=AutoPairsReturn()<CR>
+" " example
+" imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(MyCR)" : "\<Plug>(MyCR)")
+" " if you're using ncm2_snipmate
+" " inoremap <silent> <expr> <CR> ncm2_snipmate#expand_or("\<Plug>(MyCR)", 'im')
+
+
+
+" LanguageClient-neovim settings
+autocmd BufReadPost *.rs setlocal filetype=rust
+" Disable linting for python files.
+autocmd FileType python let g:LanguageClient_diagnosticsEnable=0
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_selectionUI = "fzf"
+" Disable this annoying virtual text rendering on each line of the editor
+" as we type.
+let g:LanguageClient_useVirtualText = 0
+let g:LanguageClient_completionPreferTextEdit = 1
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rust-analyzer'],
+    \ 'python': ['/opt/junk/.anaconda/envs/jormungand/bin/pyls'],
+    \ }
+
+" vim-lsp Rust config
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \ })
+endif
+
+" Code navigation shortcuts with vim lsp
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> hi    :RustToggleInlayHints<CR>
+" nnoremap <silent> hi    :RustToggleInlayHints<CR>
+
+
+" Toggle the lint panel
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+  if exists("g:qfix_win") && a:forced == 0
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfunction
+" And map it
+nnoremap <F3> : <C-u> QFix <CR>
+
+" Switch back and forth from panel to panel
+nnoremap <Tab> <c-w>w
+
+" Use deoplete.
+let g:python_host_prog="/opt/junk/.anaconda/envs/py27/bin/python2.7"
+let g:python3_host_prog="/opt/junk/.anaconda/envs/jormungand/bin/python3"
+" let g:deoplete#sources#jedi#python_path = '/home/home/junk/anaconda/envs/maelstrom/bin/python'
+
+" ALE setting
+let g:airline#extensions#ale#enabled = 1
+" Enable completion where available.
+"let g:ale_completion_enabled = 1 		" This is buggy with deoplete/LanguageClient-neovim
+" let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {'rust': ['analyzer']}
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+"let g:ale_open_list = 1
+"let g:ale_set_highlights = 0
+"let g:ale_sign_column_always = 0
+let g:ale_sign_info = 'ℹ'
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✖'
+"let g:ale_open_list = 1
+" Let's disable ALE's linting by default
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+
+
+" Snippers setup up.
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<m-s>"
+let g:UltiSnipsJumpForwardTrigger="<m-s>"
+let g:UltiSnipsJumpBackwardTrigger="<m-z>"
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+" CtrlP settings
+"let g:ctrlp_map = ''
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" Vim-CtrlP-CmdPalette settings
+let g:ctrlp_cmdpalette_execute = 1
+
+"nmap <m-p> :CtrlPCmdPalette<CR>
+nmap <M-p> :CtrlPCmdPalette<CR>
+" Open file menu
+nnoremap <Leader>o :CtrlP<CR>
+" Open buffer menu
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" Open most recently used files
+nnoremap <Leader>f :CtrlPMRUFiles<CR>
+
+" fzf settings
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" Open FZF infile search tab using Ripgrep
+nnoremap <Leader>r :Rg<CR>
+" " Open FZF tab
+" nnoremap <Leader>f :FZF<CR>
+
+"let g:ctrlp_user_command = 'rg %s -type f'        " MacOSX/Linux<Paste>
+"let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'        " MacOSX/Linux<Paste>
+let g:ctrlp_user_command = 'fd --type f'
+
+" " Tagbar + universal-ctags
+" nmap <F8> :TagbarToggle<CR>
+" let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
+" let g:tagbar_type_rust = {
+"   \ 'ctagsbin' : '/path/to/your/universal/ctags',
+"   \ 'ctagstype' : 'rust',
+"   \ 'kinds' : [
+"       \ 'n:modules',
+"       \ 's:structures:1',
+"       \ 'i:interfaces',
+"       \ 'c:implementations',
+"       \ 'f:functions:1',
+"       \ 'g:enumerations:1',
+"       \ 't:type aliases:1:0',
+"       \ 'v:constants:1:0',
+"       \ 'M:macros:1',
+"       \ 'm:fields:1:0',
+"       \ 'e:enum variants:1:0',
+"       \ 'P:methods:1',
+"   \ ],
+"   \ 'sro': '::',
+"   \ 'kind2scope' : {
+"       \ 'n': 'module',
+"       \ 's': 'struct',
+"       \ 'i': 'interface',
+"       \ 'c': 'implementation',
+"       \ 'f': 'function',
+"       \ 'g': 'enum',
+"       \ 't': 'typedef',
+"       \ 'v': 'variable',
+"       \ 'M': 'macro',
+"       \ 'm': 'field',
+"       \ 'e': 'enumerator',
+"       \ 'P': 'method',
+"   \ },
+"   \ }
