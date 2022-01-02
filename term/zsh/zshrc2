@@ -34,7 +34,7 @@ if [[  -s $ZGEN_HOME/zgen.zsh ]]; then
         # zgen load unixorn/git-extra-commands
 
         zgen oh-my-zsh plugins/python
-        zgen oh-my-zsh plugins/cargo
+        zgen oh-my-zsh plugins/rust
         # Load more completion files for zsh from the zsh-lovers github repo
         zgen load zsh-users/zsh-completions src
 
@@ -110,7 +110,7 @@ else
     # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
     # Example format: plugins=(rails git textmate ruby lighthouse)
-    plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow virtualenv pyenv zsh-autosuggestions cargo aws)
+    plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow virtualenv pyenv zsh-autosuggestions rust aws)
     # plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow )
 
     source $ZSH/oh-my-zsh.sh
