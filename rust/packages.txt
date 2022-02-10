@@ -1,5 +1,6 @@
 bat
 cargo-edit
+cargo-generate
 cargo-tree
 cargo-update
 cargo-updated
@@ -7,12 +8,15 @@ cargo-watch
 cross
 exa
 fd-find
+flamegraph
 hyperfine
 mdbook
+inferno
 racer
 ripgrep
 rusty-tags
 skim
 systemfd
 tealdeer
+twiggy
 wasm-pack
