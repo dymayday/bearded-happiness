@@ -11,6 +11,7 @@ fd-find
 flamegraph
 hyperfine
 mdbook
+ic-cdk-optimizer
 inferno
 racer
 ripgrep
