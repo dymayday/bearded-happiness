@@ -13,7 +13,6 @@ hyperfine
 mdbook
 ic-cdk-optimizer
 inferno
-racer
 ripgrep
 rusty-tags
 skim
