@@ -21,15 +21,14 @@ for toolchain in "${toolchain_arr[@]}"; do
     rustup install $toolchain
     rustup component add rust-src --toolchain $toolchain
     rustup component add rust-analysis --toolchain $toolchain
-    rustup component add rls-preview --toolchain $toolchain
+    rustup component add rls --toolchain $toolchain
     rustup component add rust-analyzer-preview --toolchain $toolchain
-    rustup component add rustfmt-preview --toolchain $toolchain
-    rustup component add clippy-preview --toolchain $toolchain
+    rustup component add rustfmt --toolchain $toolchain
+    rustup component add clippy --toolchain $toolchain
     rustup target add wasm32-unknown-unknown --toolchain $toolchain
 done
 
 rustup default nightly
-rustup target add wasm32-unknown-unknown
 
 # Get the directory path of the script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
