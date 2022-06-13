@@ -197,8 +197,8 @@ export BULLETTRAIN_VIRTUALENV_BG="green"
 export BULLETTRAIN_VIRTUALENV_FG="black"
 #export BULLETTRAIN_DIR_FG="black"
 
-# activate zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# activate zsh-syntax-highlighting. Disable because it is included in zsh by default now.
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # export NVM_DIR="$HOME/.nvm"
