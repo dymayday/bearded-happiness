@@ -12,6 +12,7 @@ flamegraph
 hyperfine
 mdbook
 ic-cdk-optimizer
+ic-wasm
 inferno
 ripgrep
 rusty-tags
