@@ -13,6 +13,7 @@ hyperfine
 mdbook
 ic-cdk-optimizer
 ic-wasm
+icx-asset
 inferno
 ripgrep
 rusty-tags
