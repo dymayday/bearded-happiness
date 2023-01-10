@@ -1,7 +1,7 @@
 -- import nvim-tree plugin safely
 local setup, nvimtree = pcall(require, "nvim-tree")
 if not setup then
-  return
+  print("nvim-tree not found!") -- print error if colorscheme not installed
 end
 
 -- recommended settings from nvim-tree documentation

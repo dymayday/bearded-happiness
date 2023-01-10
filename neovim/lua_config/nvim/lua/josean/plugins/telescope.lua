@@ -1,13 +1,13 @@
 -- import telescope plugin safely
 local telescope_setup, telescope = pcall(require, "telescope")
 if not telescope_setup then
-  return
+  print("telescope not found!") -- print error if colorscheme not installed
 end
 
 -- import telescope actions safely
 local actions_setup, actions = pcall(require, "telescope.actions")
 if not actions_setup then
-  return
+  print("telescope.actions not found!") -- print error if colorscheme not installed
 end
 
 -- configure telescope

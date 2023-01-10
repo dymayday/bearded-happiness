@@ -41,15 +41,16 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.iskeyword:append("-") -- consider string-string as whole word
 
 -- Format when saving
--- vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
--- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
 vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
-vim.g.copilot_filetypes = {
-  ["*"] = true,
-  -- ["javascript"] = true,
-  -- ["typescript"] = true,
-  -- ["rust"] = true,
-  -- ["lua"] = true,
-  -- ["html"] = true,
-}
+-- Give candid files the Rust syntax.
+vim.cmd([[autocmd BufNewFile,BufRead *.did setfiletype go]])
+
+-- vim.g.copilot_filetypes = {
+--   ["*"] = true,
+--   -- ["javascript"] = true,
+--   -- ["typescript"] = true,
+--   -- ["rust"] = true,
+--   -- ["lua"] = true,
+--   -- ["html"] = true,
+-- }

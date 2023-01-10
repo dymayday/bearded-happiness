@@ -1,7 +1,7 @@
 -- import nvim-treesitter plugin safely
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
-  return
+  print("nvim-treesitter.config not found!") -- print error if colorscheme not installed
 end
 
 -- configure treesitter
@@ -31,6 +31,8 @@ treesitter.setup({
     "vim",
     "dockerfile",
     "gitignore",
+    "rust",
+    "python",
   },
   -- auto install above language parsers
   auto_install = true,

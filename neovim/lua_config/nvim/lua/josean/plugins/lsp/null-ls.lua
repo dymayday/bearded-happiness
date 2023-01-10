@@ -1,7 +1,7 @@
 -- import null-ls plugin safely
 local setup, null_ls = pcall(require, "null-ls")
 if not setup then
-  return
+  print("null-ls not found!") -- print error if colorscheme not installed
 end
 
 -- for conciseness

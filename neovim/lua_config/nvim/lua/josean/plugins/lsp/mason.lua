@@ -1,19 +1,19 @@
 -- import mason plugin safely
 local mason_status, mason = pcall(require, "mason")
 if not mason_status then
-  return
+  print("mason not found!") -- print error if colorscheme not installed
 end
 
 -- import mason-lspconfig plugin safely
 local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_status then
-  return
+  print("mason-lspconfig not found!") -- print error if colorscheme not installed
 end
 
 -- import mason-null-ls plugin safely
 local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
 if not mason_null_ls_status then
-  return
+  print("mason-null-ls not found!") -- print error if colorscheme not installed
 end
 
 -- enable mason
@@ -26,8 +26,13 @@ mason_lspconfig.setup({
     "html",
     "cssls",
     "tailwindcss",
+    "cmake",
     "sumneko_lua",
-    "emmet_ls",
+    -- "emmet_ls",
+    "rust_analyzer",
+    "taplo",
+    "jedi_language_server",
+    "gopls",
   },
   -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed

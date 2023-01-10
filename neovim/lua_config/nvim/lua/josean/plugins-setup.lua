@@ -33,18 +33,24 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("gruvbox-community/gruvbox") -- preferred colorscheme
+  -- use("gruvbox-community/gruvbox") -- preferred colorscheme
+  use("navarasu/onedark.nvim") -- 2nd prefered colorscheme
+
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
+
+  -- Turbocharge undo
+  use("mbbill/undotree")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
-  use("szw/vim-maximizer") -- maximizes and restores current window
+  -- use("szw/vim-maximizer") -- maximizes and restores current window
+
+  use("akinsho/bufferline.nvim") -- better tabs
 
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("vim-scripts/ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
-
-  -- commenting with gc
-  use("numToStr/Comment.nvim")
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
@@ -57,7 +63,8 @@ return packer.startup(function(use)
 
   -- fuzzy finding w/ telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+  use("nvim-telescope/telescope.nvim") -- fuzzy finder
+  -- use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- autocompletion
   use("hrsh7th/nvim-cmp") -- completion plugin
@@ -72,12 +79,12 @@ return packer.startup(function(use)
   -- managing & installing lsp servers, linters & formatters
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+  require("mason").setup()
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+  use("glepnir/lspsaga.nvim") -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
   -- Visualize lsp progress
@@ -87,12 +94,13 @@ return packer.startup(function(use)
       require("fidget").setup()
     end,
   })
+  -- -- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports);
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
-  -- -- treesitter configuration
+  -- treesitter configuration
   -- use({
   --   "nvim-treesitter/nvim-treesitter",
   --   run = function()
@@ -108,15 +116,27 @@ return packer.startup(function(use)
 
   -- auto closing
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-  -- use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+  -- use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
+
+  -- -- -- better terminal integration
+  -- -- use({
+  -- --   "akinsho/toggleterm.nvim",
+  -- --   tag = "*",
+  -- --   config = function()
+  -- --     require("toggleterm").setup()
+  -- --   end,
+  -- -- })
+
   -- Github copilot
   use("github/copilot.vim")
 
-  use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
+  -- User ThePrimeagen file navigation plugin.
+  use("ThePrimeagen/harpoon")
 
   if packer_bootstrap then
     require("packer").sync()

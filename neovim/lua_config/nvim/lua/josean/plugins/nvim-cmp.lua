@@ -1,19 +1,19 @@
 -- import nvim-cmp plugin safely
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
-  return
+  print("cmp not found!") -- print error if colorscheme not installed
 end
 
 -- import luasnip plugin safely
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
-  return
+  print("luasnip not found!") -- print error if colorscheme not installed
 end
 
 -- import lspkind plugin safely
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
-  return
+  print("lspkind not found!") -- print error if colorscheme not installed
 end
 
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
@@ -32,11 +32,14 @@ cmp.setup({
     ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
     ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
     -- Add tab support
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-    ["<Tab>"] = cmp.mapping.select_next_item(),
+    -- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    -- ["<Tab>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+    -- ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+    ["<C-Space>"] = cmp.mapping.complete({
+      reason = cmp.ContextReason.Auto,
+    }), -- show completion suggestions
     ["<C-e>"] = cmp.mapping.abort(), -- close completion window
     -- ["<CR>"] = cmp.mapping.confirm({ select = false }),
     ["<CR>"] = cmp.mapping.confirm({
@@ -45,12 +48,22 @@ cmp.setup({
     }),
   }),
   -- sources for autocompletion
+  -- sources = cmp.config.sources({
+  --   { name = "nvim_lsp" }, -- lsp
+  --   { name = "vsnip" }, -- snippet
+  --   { name = "luasnip" }, -- snippets
+  --   { name = "buffer" }, -- text within current buffer
+  --   { name = "path" }, -- file system paths
+  --   { name = "copilot", keyword_length = 0 }, -- file system paths
+  -- }),
   sources = cmp.config.sources({
-    { name = "nvim_lsp" }, -- lsp
-    { name = "vsnip" }, -- snippet
-    { name = "luasnip" }, -- snippets
-    { name = "buffer" }, -- text within current buffer
-    { name = "path" }, -- file system paths
+    { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "path" },
+  }, {
+    { name = "buffer", keyword_length = 3 },
   }),
   -- configure lspkind for vs-code like icons
   formatting = {
