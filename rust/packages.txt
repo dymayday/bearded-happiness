@@ -1,3 +1,4 @@
+bacon
 bat
 cargo-audit
 cargo-edit
@@ -7,9 +8,11 @@ cargo-update
 cargo-updated
 cargo-watch
 cross
+du-dust
 exa
 fd-find
 flamegraph
+gitui
 hyperfine
 mdbook
 ic-cdk-optimizer
@@ -18,8 +21,10 @@ icx-asset
 inferno
 ripgrep
 rusty-tags
+sccache
 skim
 systemfd
 tealdeer
 twiggy
 wasm-pack
+zellij

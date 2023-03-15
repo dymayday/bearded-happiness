@@ -27,7 +27,7 @@ mason_lspconfig.setup({
     "cssls",
     "tailwindcss",
     "cmake",
-    "sumneko_lua",
+    -- "sumneko_lua",
     -- "emmet_ls",
     "rust_analyzer",
     "taplo",

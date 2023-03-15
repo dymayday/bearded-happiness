@@ -33,7 +33,8 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  -- use("gruvbox-community/gruvbox") -- preferred colorscheme
+  use("gruvbox-community/gruvbox") -- preferred colorscheme
+  -- use("morhetz/gruvbox") -- preferred colorscheme
   use("navarasu/onedark.nvim") -- 2nd prefered colorscheme
 
   -- commenting with gc
@@ -84,7 +85,19 @@ return packer.startup(function(use)
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-  use("glepnir/lspsaga.nvim") -- enhanced lsp uis
+  -- use("glepnir/lspsaga.nvim") -- enhanced lsp uis
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  })
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
   -- Visualize lsp progress
@@ -121,7 +134,7 @@ return packer.startup(function(use)
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-  -- use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
+  use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
 
   -- -- -- better terminal integration
   -- -- use({
