@@ -22,7 +22,8 @@ for toolchain in "${toolchain_arr[@]}"; do
     rustup component add rust-src --toolchain $toolchain
     rustup component add rust-analysis --toolchain $toolchain
     rustup component add rls --toolchain $toolchain
-    rustup component add rust-analyzer-preview --toolchain $toolchain
+    # rustup component add rust-analyzer-preview --toolchain $toolchain
+    rustup component add rust-analyzer --toolchain $toolchain
     rustup component add rustfmt --toolchain $toolchain
     rustup component add clippy --toolchain $toolchain
     rustup target add wasm32-unknown-unknown --toolchain $toolchain
@@ -37,6 +38,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 packages=(`cat ${DIR}/packages.txt`)
 elements=$( IFS=$'\n'; echo "${packages[*]}" )
 
-cargo install $elements
-# RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
+cargo install --force $elements
+RUSTFLAGS="-C target-cpu=native" cargo install --force ripgrep --features 'simd-accel pcre2'
 tldr -u

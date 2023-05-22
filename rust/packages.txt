@@ -20,6 +20,7 @@ ic-wasm
 icx-asset
 inferno
 ripgrep
+rustlings
 rusty-tags
 sccache
 skim
