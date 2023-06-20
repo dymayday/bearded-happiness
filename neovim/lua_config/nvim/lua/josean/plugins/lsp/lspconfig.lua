@@ -50,6 +50,7 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
   keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
   keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+  keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
   -- keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
   keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
   -- LSP finder - Find the symbol's definition
@@ -60,6 +61,7 @@ local on_attach = function(client, bufnr)
   -- Call hierarchy
   keymap.set("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts)
   keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts)
+  keymap.set("n", "<leader>tr", "<cmd>Lspsaga term_toggle<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
   -- -- typescript specific keymaps (e.g. rename file and update imports)
   -- if client.name == "tsserver" then
@@ -174,6 +176,11 @@ local opts = {
       -- to enable rust-analyzer settings visit:
       -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
       ["rust-analyzer"] = {
+        diagnostics = {
+          enable = true,
+          disabled = { "unresolved-proc-macro" },
+          enableExperimental = true,
+        },
         -- enable clippy on save
         checkOnSave = {
           command = "clippy",

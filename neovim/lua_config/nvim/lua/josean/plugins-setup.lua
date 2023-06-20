@@ -33,9 +33,15 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("gruvbox-community/gruvbox") -- preferred colorscheme
+  -- use("gruvbox-community/gruvbox") -- preferred colorscheme
   -- use("morhetz/gruvbox") -- preferred colorscheme
+  -- use("ellisonleao/gruvbox.nvim") -- preferred colorscheme
   use("navarasu/onedark.nvim") -- 2nd prefered colorscheme
+  use("sainnhe/gruvbox-material")
+  use("sainnhe/everforest")
+  use("sainnhe/edge")
+  use("sainnhe/sonokai")
+  use("chriskempson/base16-vim")
 
   -- commenting with gc
   use("numToStr/Comment.nvim")
@@ -145,11 +151,33 @@ return packer.startup(function(use)
   -- --   end,
   -- -- })
 
+  use({
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
+
   -- Github copilot
   use("github/copilot.vim")
 
   -- User ThePrimeagen file navigation plugin.
   use("ThePrimeagen/harpoon")
+
+  -- Git fugitive
+  use("tpope/vim-fugitive")
+
+  -- Jumping around like a ninja
+  use("easymotion/vim-easymotion")
+
+  -- -- Jumping around like a ninja
+  -- use("ggandor/leap.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

@@ -33,6 +33,7 @@ treesitter.setup({
     "dockerfile",
     "gitignore",
     "rust",
+    "zig",
     "python",
   },
   -- auto install above language parsers
