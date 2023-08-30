@@ -30,10 +30,12 @@ local config = {
   },
   request_timeout = 20000,
   finder = {
+    layout = { "float" },
     edit = { "o", "<CR>" },
-    vsplit = "s",
-    split = "i",
+    vsplit = "v",
+    split = "h",
     tabe = "t",
+    tabnew = "r",
     quit = { "q", "<ESC>" },
   },
   definition = {
@@ -57,6 +59,7 @@ local config = {
     sign = true,
     sign_priority = 40,
     virtual_text = true,
+    debounce = 3,
   },
   diagnostic = {
     twice_into = false,

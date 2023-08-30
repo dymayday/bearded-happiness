@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -52,6 +52,12 @@ return packer.startup(function(use)
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
   -- use("szw/vim-maximizer") -- maximizes and restores current window
+  use({
+    "declancm/maximize.nvim",
+    config = function()
+      require("maximize").setup()
+    end,
+  })
 
   use("akinsho/bufferline.nvim") -- better tabs
 
@@ -92,6 +98,7 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
   -- use("glepnir/lspsaga.nvim") -- enhanced lsp uis
+
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
@@ -104,6 +111,34 @@ return packer.startup(function(use)
       { "nvim-treesitter/nvim-treesitter" },
     },
   })
+
+  -- lspsaga alternative
+  -- use({
+  --   "ray-x/navigator.lua",
+  --   requires = {
+  --     { "ray-x/guihua.lua",               run = "cd lua/fzy && make" },
+  --     { "neovim/nvim-lspconfig" },
+  --     { "nvim-treesitter/nvim-treesitter" },
+  --   },
+  --   config = function()
+  --     require("navigator").setup({
+  --       mason = true,
+  --     })
+  --
+  --     require("rust-tools").setup({
+  --       server = {
+  --         on_attach = function(client, bufnr)
+  --           require("navigator.lspclient.mapping").setup({ client = client, bufnr = bufnr }) -- setup navigator keymaps here,
+  --
+  --           require("navigator.dochighlight").documentHighlight(bufnr)
+  --           require("navigator.codeAction").code_action_prompt(bufnr)
+  --           -- otherwise, you can define your own commands to call navigator functions
+  --         end,
+  --       },
+  --     })
+  --   end,
+  -- })
+
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
   -- Visualize lsp progress

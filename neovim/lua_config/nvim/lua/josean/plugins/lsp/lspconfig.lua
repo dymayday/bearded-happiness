@@ -32,9 +32,12 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   -- set keybinds
-  keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+  -- keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
+  keymap.set("n", "gf", "<cmd>Lspsaga finder def+ref+imp<CR>", opts) -- show definition, references
+  keymap.set("n", "gfd", "<cmd>Lspsaga finder def<CR>", opts) -- show definition, references
   keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
   keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+  keymap.set("n", "gtd", "<cmd>Lspsaga goto_definition<CR>", opts) -- see definition and make edits in window
   -- Peek type definition
   -- You can edit the file containing the type definition in the floating window
   -- It also supports open/vsplit/etc operations, do refer to "definition_action_keys"
