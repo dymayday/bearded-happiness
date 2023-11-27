@@ -97,14 +97,24 @@ return packer.startup(function(use)
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  use("ray-x/lsp_signature.nvim")
   -- use("glepnir/lspsaga.nvim") -- enhanced lsp uis
+
+  use("preservim/vim-markdown") -- markdown syntax highlighting
 
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
-    config = function()
-      require("lspsaga").setup({})
-    end,
+    -- config = function()
+    --   require("lspsaga").setup({
+    --     finder = {
+    --       keys = {
+    --         vsplit = "v",
+    --         split = "s",
+    --       },
+    --     },
+    --   })
+    -- end,
     requires = {
       { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
@@ -141,9 +151,12 @@ return packer.startup(function(use)
 
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
+  use("ray-x/go.nvim") -- go specific lsp functionality
+
   -- Visualize lsp progress
   use({
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
       require("fidget").setup()
     end,

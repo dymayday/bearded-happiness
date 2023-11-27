@@ -35,6 +35,7 @@ treesitter.setup({
     "rust",
     "zig",
     "python",
+    "go",
   },
   -- auto install above language parsers
   auto_install = true,

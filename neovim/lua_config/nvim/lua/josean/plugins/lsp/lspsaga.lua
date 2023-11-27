@@ -6,15 +6,39 @@ end
 
 -- saga.init_lsp_saga({
 lspsaga.setup({
-  -- keybinds for navigation in lspsaga window
-  move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-  -- use enter to open file with finder
-  finder_action_keys = {
-    open = "<CR>",
+  -- -- keybinds for navigation in lspsaga window
+  -- move_in_saga = { prev = "<C-k>", next = "<C-j>" },
+  -- -- use enter to open file with finder
+  -- finder_action_keys = {
+  --   open = "<CR>",
+  -- },
+  -- -- use enter to open file with definition preview
+  -- definition_action_keys = {
+  --   edit = "<CR>",
+  -- },
+  finder = {
+    keys = {
+      vsplit = "v",
+      split = "s",
+    },
   },
-  -- use enter to open file with definition preview
-  definition_action_keys = {
-    edit = "<CR>",
+  outline = {
+    layout = "normal",
+    -- layout = "float",
+    win_position = "right",
+    -- win_with = "",
+    win_width = 90,
+    -- win_width = 30,
+    show_detail = true,
+    auto_preview = true,
+    -- auto_refresh = true,
+    auto_close = true,
+    close_after_jump = false,
+    -- custom_sort = nil,
+  },
+  scroll_preview = {
+    scroll_down = "<C-d>",
+    scroll_up = "<C-u>",
   },
 })
 
