@@ -1,0 +1,332 @@
+export TERM="xterm-256color"
+
+export ZGEN_HOME="$HOME/.zgen"
+if [[ ! -s $ZGEN_HOME/zgen.zsh ]]; then
+    git clone https://github.com/tarjoilija/zgen.git "$ZGEN_HOME"
+fi
+
+if [[  -s $ZGEN_HOME/zgen.zsh ]]; then
+    export ZGEN_DIR="$ZGEN_HOME"
+    source "$ZGEN_HOME/zgen.zsh"
+
+    # check if there's an init.zsh file for zgen and generate one if not.
+    if ! zgen saved; then
+        zgen oh-my-zsh
+        zgen prezco
+
+        # If zsh-syntax-highlighting is bundled after zsh-history-substring-search,
+        # they break, so get the order right.
+        zgen load zsh-users/zsh-syntax-highlighting
+        zgen load zsh-users/zsh-history-substring-search
+
+        # Automatically run zgen update and zgen selfupdate every 7 days
+        zgen load unixorn/autoupdate-zgen
+
+        # Load some oh-my-zsh plugins
+        zgen oh-my-zsh plugins/sudo
+        zgen oh-my-zsh plugins/colored-man-pages
+        zgen oh-my-zsh plugins/colorize
+        zgen oh-my-zsh plugins/tmux
+        zgen oh-my-zsh plugins/git
+        zgen oh-my-zsh plugins/github
+        zgen oh-my-zsh plugins/docker
+        zgen oh-my-zsh plugins/docker-compose
+        # zgen load unixorn/git-extra-commands
+
+        zgen oh-my-zsh plugins/python
+        zgen oh-my-zsh plugins/rust
+
+        # Load more completion files for zsh from the zsh-lovers github repo
+        zgen load zsh-users/zsh-completions src
+
+        zgen load chrissicool/zsh-256color
+
+        # Very cool plugin that generates zsh completion functions for commands
+        # if they have getopt-style help text. It doesn't generate them on the fly,
+        # you'll have to explicitly generate a completion, but it's still quite cool.
+        zgen load RobSis/zsh-completion-generator
+
+        # Add Fish-like autosuggestions to your ZSH
+        zgen load zsh-users/zsh-autosuggestions
+
+        # k is a zsh script / plugin to make directory listings more readable,
+        # adding a bit of color and some git status information on files and directories
+        # zgen load rimraf/k
+        zgen load supercrabtree/k
+
+        # ZSH theme park
+        zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+        zgen load romkatv/powerlevel10k powerlevel10k
+
+        zgen load esc/conda-zsh-completion
+        # fpath+="$ZGEN_HOME/esc/conda-zsh-completion-master"
+        # compinit conda
+
+        zgen save
+
+        alias k="k -h"
+
+    fi
+else
+
+    # Path to your oh-my-zsh configuration.
+    ZSH=$HOME/.oh-my-zsh
+
+    # Powerline exports:
+    POWERLINE_RIGHT_A="exit-status-on-fail"
+    BULLETTRAIN_STATUS_SHOW=true
+    BULLETTRAIN_STATUS_EXIT_SHOW=true
+    BULLETTRAIN_EXEC_TIME_SHOW=true
+    BULLETTRAIN_DIR_EXTENDED=2
+    # BULLETTRAIN_NVM_SHOW=true
+
+    # export TERM="xterm-256color"
+    # export TERM=rxvt
+
+    # Set name of the theme to load.
+    # Look in ~/.oh-my-zsh/themes/
+    # Optionally, if you set this to "random", it'll load a random theme each
+    # time that oh-my-zsh is loaded.
+    ZSH_THEME="bullet-train"
+    # ZSH_THEME="powerlevel9k/powerlevel9k"
+    # ZSH_THEME="powerlevel10k/powerlevel10k"
+
+    # Example aliases
+    alias zshconfig="subl ~/.zshrc"
+    
+    # Uncomment following line if you want red dots to be displayed while waiting for completion
+    COMPLETION_WAITING_DOTS="true"
+
+    # Uncomment following line if you want to disable marking untracked files under
+    # VCS as dirty. This makes repository status check for large repositories much,
+    # much faster.
+    # DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+    # Uncomment following line if you want to  shown in the command execution time stamp
+    # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+    # yyyy-mm-dd
+    # HIST_STAMPS="mm/dd/yyyy"
+    HIST_STAMPS="yyyy/mm/dd"
+
+    # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+    # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+    # Example format: plugins=(rails git textmate ruby lighthouse)
+    plugins=(git systemd colored-man colorize common-aliases cp rsync \
+        pip git-flow virtualenv pyenv zsh-autosuggestions rust tmux \
+        ripgrep)
+    # plugins=(git systemd colored-man colorize common-aliases cp rsync pip django git-flow )
+
+    source $ZSH/oh-my-zsh.sh
+fi
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+
+if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
+    expand-or-complete-with-dots() {
+        # echo -n "\e[31m......\e[0m"
+        echo -n "\e[31m...\e[0m"
+        zle expand-or-complete
+        zle redisplay
+    }
+    zle -N expand-or-complete-with-dots
+    bindkey "^I" expand-or-complete-with-dots
+fi
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment following line if you want to  shown in the command execution time stamp
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+HIST_STAMPS="yyyy/mm/dd"
+
+
+# export VISUAL="vim"
+export EDITOR="$(if [[ -f /usr/bin/nvim ]]; then echo 'nvim'; else echo 'vim'; fi)"
+setopt CORRECT
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Keymaping
+bindkey '^H'      backward-kill-word      # ctrl+bs   delete previous word
+bindkey '^[[3;5~' kill-word               # ctrl+del  delete next word
+bindkey '^J'      backward-kill-line      # ctrl+j    delete everything before cursor
+bindkey '^Z'      undo                    # ctrl+z    undo
+bindkey '^Y'      redo                    # ctrl+y    redo
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Bash functions (work only with zsh, go figure ¯\_(ツ)_/¯)
+function cs() { cd "$@" && l; }
+function cx() { cd "$@" && exa -lg; }
+# function ignite_python() { . /home/home/junk/anaconda/etc/profile.d/conda.sh && conda activate maelstrom && export  VIRTUAL_ENV="maelstrom" ; }
+function act() { conda activate "$1" && export  VIRTUAL_ENV=$CONDA_PREFIX ; }
+function sudox() { xhost si:localuser:root && sudo "$@" && xhost -si:localuser:root ; }
+
+# Push musics to Android phone
+function adb_push_music() { adb push "$@" /storage/43E3-332A/Musics }
+function adb_push_download() { adb push "$@" /storage/self/primary/Download/ }
+
+# Run a program on the discrete graphic card
+function gpu-run() { ignite-gpu && vblank_mode=0 optirun "$@" ; blowout-gpu }
+# function gpu-run() { ignite-gpu && vblank_mode=0 primusrun "$@" ; blowout-gpu }
+
+functions clean-cargo-directories() {
+    for DIR in *; do
+        if [ -d "$DIR" ]; then
+            echo "Cleaning Cargo project $DIR..."
+            cd "$DIR"
+            cargo clean
+            cd ..
+        fi
+    done
+}
+
+
+# Anaconda export
+# export PATH="/home/home/junk/anaconda/bin:$PATH" && act "maelstrom"
+
+# Rust settings
+source $HOME/.cargo/env
+fpath+=~/.zfunc
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
+
+
+# Go lang settings
+export GOPATH="$HOME/.go"
+
+# Zig lang settings
+# export PATH="$PATH:$HOME/junk/zig/zig-linux-x86_64-0.11.0-dev.3132+465272921"
+export PATH="$PATH:$HOME/junk/zig/zig/build/stage3/bin"
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+
+# export BULLETTRAIN_PROMPT_ORDER=(time status custom context dir virtualenv git cmd_exec_time)
+export BULLETTRAIN_PROMPT_ORDER=(time status custom dir git virtualenv cmd_exec_time)
+export BULLETTRAIN_VIRTUALENV_BG="green"
+export BULLETTRAIN_VIRTUALENV_FG="black"
+#export BULLETTRAIN_DIR_FG="black"
+
+# activate zsh-syntax-highlighting
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# export NVM_DIR="$HOME/.nvm"
+function ignite_node() { export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" ;}
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # && nvm use v7 # This loads nvm
+# source /usr/share/nvm/init-nvm.sh
+# ignite_node
+
+# Tilix fix
+. /etc/profile.d/vte.sh
+
+# exit
+
+export VSCODE_NONFREE=1
+
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Uncomment this to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+function maria4 () {
+    urls=("$@")
+    for url in "${urls[@]}"; do
+        aria2c -x 4 -j 4 -s 4 -c "$url"
+    done
+}
+
+# CUDA setting
+# export LD_LIBRARY_PATH="/opt/cuda/lib64"
+# export PATH="$PATH:/opt/cuda/bin"
+
+## Theme Park :) ##
+source ~/.zsh_theme
+# source ~/.profile
+
+# # Nix
+# if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+#   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+# elif [ -e '/nix/var/nix/profiles/per-user/odin/profile/etc/profile.d/nix.sh' ]; then
+#     . /nix/var/nix/profiles/per-user/odin/profile/etc/profile.d/nix.sh
+# fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+  MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
+fi
+QT_QPA_PLATFORM=wayland
+
+# DFinity settings
+export PATH="$PATH:$HOME/workspace/icp/bin"
+
+# WebAssembly optimizer
+export PATH="$PATH:$HOME/junk/repo/binaryen/bin"
+
+# Loading Node because we actively dev with IC
+# ignite_node
+# ignite_python && act jormungand && ignite_node
+
+# Remove annoying dfx warnings
+export DFX_WARNING="-mainnet_plaintext_identity"
+
+# Distrikt DEV related settings
+export DKT_MAIN_DEV="rrkah-fqaaa-aaaaa-aaaaq-cai"
+export DKT_MSG_DEV="r7inp-6aaaa-aaaaa-aaabq-cai"
+export DKT_TIP_DEV="rkp4c-7iaaa-aaaaa-aaaca-cai"
+export DKT_CP_DEV="rno2w-sqaaa-aaaaa-aaacq-cai"
+export DKT_REG_DEV="b77ix-eeaaa-aaaaa-qaada-cai"
+export DKT_PARK_DEV="by6od-j4aaa-aaaaa-qaadq-cai"
+
+# Distrikt Staging related settings
+export DKT_MAIN_STG="a64ux-piaaa-aaaae-aaara-cai"
+export DKT_MSG_STG="jmgg2-taaaa-aaaae-aag7a-cai"
+export DKT_CP_STG="5dym3-qaaaa-aaaae-aajea-cai"
+export DKT_TIP_STG="4owiv-7iaaa-aaaae-aajdq-cai"
+export DKT_REG_STG="couov-7iaaa-aaaae-aahcq-cai"
+export DKT_PARK_STG="chxfj-jaaaa-aaaae-aahda-cai"
+
+# Distrikt Prod related settings
+export DKT_MAIN_PROD="cea4l-ryaaa-aaaae-aaa6a-cai"
+export DKT_MSG_PROD="csque-iiaaa-aaaae-aahaq-cai"
+export DKT_CP_PROD="3ets6-yqaaa-aaaae-aaf6a-cai"
+export DKT_TIP_PROD="cwgls-5iaaa-aaaae-aaa5a-cai"
+export DKT_REG_PROD="cawd5-eyaaa-aaaae-aahdq-cai"
+export DKT_PARK_PROD="dnyht-lqaaa-aaaae-aahea-cai"
+
+# Distrikt Bigmap buckets
+export DKT_BIGMAP="bbuha-mqaaa-aaaae-aaavq-cai 7lct6-caaaa-aaaae-aajia-cai 7mdvk-pyaaa-aaaae-aajiq-cai 7fa6w-zqaaa-aaaae-aajja-cai 7cbyc-uiaaa-aaaae-aajjq-cai 7xgjp-vaaaa-aaaae-aajka-cai 7qhp3-yyaaa-aaaae-aajkq-cai 7zeeh-oqaaa-aaaae-aajla-cai 76fct-diaaa-aaaae-aajlq-cai 6tlg5-maaaa-aaaae-aajma-cai 6ukaj-byaaa-aaaae-aajmq-cai 65jlv-xqaaa-aaaae-aajna-cai 62inb-2iaaa-aaaae-aajnq-cai 6pp4m-3aaaa-aaaae-aajoa-cai 6io2y-wyaaa-aaaae-aajoq-cai 6bnre-aqaaa-aaaae-aajpa-cai 6gmxq-niaaa-aaaae-aajpq-cai 32xnv-gaaaa-aaaae-aajqa-cai 35wlb-lyaaa-aaaae-aajqq-cai 3uva5-5qaaa-aaaae-aajra-cai 3tugj-qiaaa-aaaae-aajrq-cai 3gtxe-raaaa-aaaae-aajsa-cai 3bsrq-4yaaa-aaaae-aajsq-cai 3ir2m-kqaaa-aaaae-aajta-cai 3pq4y-hiaaa-aaaae-aajtq-cai 2c6yw-iaaaa-aaaae-aajua-cai 2f76c-fyaaa-aaaae-aajuq-cai 2m4v6-tqaaa-aaaae-aajva-cai 2l5tk-6iaaa-aaaae-aajvq-cai 262ch-7aaaa-aaaae-aajwa-cai 2z3et-syaaa-aaaae-aajwq-cai 2qypp-eqaaa-aaaae-aajxa-cai 2xzj3-jiaaa-aaaae-aajxq-cai"

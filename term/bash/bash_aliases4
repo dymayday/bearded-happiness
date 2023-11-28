@@ -1,0 +1,89 @@
+# My common aliases
+alias l='ls -lh'
+alias ll='ls -larth'
+alias lm='ls -larhS'
+alias update-system='yay -Syu'
+alias rm='rm'
+alias zshconfig="$EDITOR $HOME/.zshrc"
+
+# GPU handling
+alias ignite-gpu="sudo /opt/bin/enablegpu.sh"
+alias blowout-gpu="sudo /opt/bin/disablegpu.sh"
+
+# IDE section
+alias subl='subl3'
+alias nv="nvim"
+alias n="nvim"
+alias v="nvim"
+alias update-neovim="nvim +PlugClean +qa && nvim +PlugInstall +UpdateRemotePlugins +qa && nvim +PlugUpdate +UpdateRemotePlugins +qa"
+alias neovimconfig="nvim ~/.config/nvim/init.vim"
+#alias vscode='/usr/bin/code-insiders'
+
+# Python aliases
+#alias ignite_python='export PATH="/home/home/junk/anaconda/bin:$PATH"'
+alias ignite_python='. /opt/junk/.anaconda/etc/profile.d/conda.sh'
+alias py='/usr/bin/env python3'
+alias pylab='/usr/bin/env ipython3 --pylab --TerminalInteractiveShell.history_length=1000000 --TerminalInteractiveShell.history_load_length=1000000 --no-confirm-exit --autocall=1'
+alias update-python="ignite_python && act py37 && conda update -n base conda -y && conda update --all -y"
+
+alias cups_start='sudo systemctl start org.cups.cupsd.service'
+alias pfs='~/junk/python/scripts/python_full_search_package.py'
+alias vcp='rsync --info=progress2 -Wh -a '
+alias sshco='~/scripts/sshco.sh'
+
+# Git aliases
+alias dsf='git diff --color | diff-so-fancy'
+alias gdf="git diff"
+alias gcm="git commit -m"
+
+# youtube-dl
+#alias ydl="youtube-dl -xi --audio-quality 0 --audio-format mp3"
+alias ydl="yt-dlp --embed-thumbnail --add-metadata"
+# alias yzic='youtube-dl -xi -f bestaudio --audio-format mp3 --embed-thumbnail --add-metadata '
+alias yzic='yt-dlp -xi -f bestaudio --embed-thumbnail --add-metadata '
+alias zicdl="yzic"
+
+# RUST aliases
+alias cargo='TERM=xterm-color cargo'
+# alias cargo='CARGO_INCREMENTAL=1 TERM=xterm-color cargo'
+# alias update-vim='vim +PluginUpdate +qall && cd ~/.vim/bundle/YouCompleteMe/ && git pull && ./install.py --rust-completer --js-completer --clang-completer --go-completer && cd -'
+alias update-vim="vim +PlugClean +qall && vim +PlugInstall +UpdateRemotePlugins +qall && vim +PlugUpdate +UpdateRemotePlugins +qall"
+alias update-rust='~/junk/repo/bearded-happiness/rust/rust_update.sh'
+alias e="exa -lg"
+alias ea="exa -lag"
+alias rfmt="cargo +nightly fmt"
+
+# Downloader
+alias aria4="aria2c -x 4 -j 4 -s 4 -c"
+alias aria8="aria2c -x 8 -j 8 -s 8 -c"
+
+# Docker
+alias ignite-docker="sudo systemctl restart docker.{service,socket}"
+alias blowout-docker="sudo systemctl stop docker.{service,socket}"
+alias ignite-docker-and-db="ignite-docker && sudo systemctl restart postgresql.service"
+
+
+# Zoom hack
+alias fake-arch-os="~/scripts/fake-archlinux-os.sh"
+
+# Nix
+alias wipeout-nix="sudo rm -rf /etc/profile/nix.sh /etc/profile.d/nix.sh /etc/nix /nix ~root/.nix-profile ~root/.nix-defexpr ~root/.nix-channels ~/.nix-profile ~/.nix-defexpr ~/.nix-channels /etc/profile.d/nix.sh.backup-before-nix"
+
+# Embedded
+alias stm32f3x-dbg-openocd="openocd \\
+-f /usr/share/openocd/scripts/interface/stlink.cfg \\
+-f /usr/share/openocd/scripts/target/stm32f3x.cfg"
+
+# Cups aliases for printing service
+alias ignite-cups="sudo systemctl restart cups.{service,socket,path}"
+alias blowout-cups="sudo systemctl stop cups.{service,socket,path}"
+
+# ICP related aliases
+alias didc="$HOME/workspace/icp/repos/candid/target/release/didc"
+
+# Tmux aliases
+alias ntx="tmux new-session -t"
+
+# Zellij (terminal multiplexer written in Rust) aliases.
+alias zj="zellij"
+alias zjn="zellij --session"
