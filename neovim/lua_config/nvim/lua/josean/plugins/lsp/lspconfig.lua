@@ -131,6 +131,22 @@ lspconfig["emmet_ls"].setup({
   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
 
+-- lspconfig["solidity"] = {
+--   default_config = {
+--     cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+--     filetypes = { "solidity" },
+--     root_dir = lspconfig["util"].find_git_ancestor,
+--     single_file_support = true,
+--   },
+-- }
+
+lspconfig["solidity"].setup({
+  cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+  filetypes = { "solidity" },
+  root_dir = lspconfig["util"].find_git_ancestor,
+  single_file_support = true,
+})
+
 -- -- configure lua server (with special settings)
 -- lspconfig["sumneko_lua"].setup({
 --   capabilities = capabilities,

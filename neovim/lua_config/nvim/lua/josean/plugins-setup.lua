@@ -215,6 +215,19 @@ return packer.startup(function(use)
   -- Github copilot
   use("github/copilot.vim")
 
+  -- ChatGPT
+  use({
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  })
+
   -- User ThePrimeagen file navigation plugin.
   use("ThePrimeagen/harpoon")
 

@@ -199,7 +199,7 @@ functions clean-cargo-directories() {
 source $HOME/.cargo/env
 fpath+=~/.zfunc
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src/"
 
 
@@ -208,7 +208,7 @@ export GOPATH="$HOME/.go"
 
 # Zig lang settings
 # export PATH="$PATH:$HOME/junk/zig/zig-linux-x86_64-0.11.0-dev.3132+465272921"
-export PATH="$PATH:$HOME/junk/zig/zig/build/stage3/bin"
+# export PATH="$PATH:$HOME/junk/zig/zig/build/stage3/bin"
 
 # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
@@ -232,11 +232,6 @@ function ignite_node() { export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ]
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # && nvm use v7 # This loads nvm
 # source /usr/share/nvm/init-nvm.sh
 # ignite_node
-
-# Tilix fix
-. /etc/profile.d/vte.sh
-
-# exit
 
 export VSCODE_NONFREE=1
 
@@ -286,47 +281,47 @@ source ~/.zsh_theme
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
-  MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
-fi
-QT_QPA_PLATFORM=wayland
+# if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+#   MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
+# fi
+# QT_QPA_PLATFORM=wayland
 
-# DFinity settings
-export PATH="$PATH:$HOME/workspace/icp/bin"
+# # DFinity settings
+# export PATH="$PATH:$HOME/workspace/icp/bin"
 
-# WebAssembly optimizer
-export PATH="$PATH:$HOME/junk/repo/binaryen/bin"
+# # WebAssembly optimizer
+# export PATH="$PATH:$HOME/junk/repo/binaryen/bin"
 
 # Loading Node because we actively dev with IC
 # ignite_node
 # ignite_python && act jormungand && ignite_node
 
-# Remove annoying dfx warnings
-export DFX_WARNING="-mainnet_plaintext_identity"
-
-# Distrikt DEV related settings
-export DKT_MAIN_DEV="rrkah-fqaaa-aaaaa-aaaaq-cai"
-export DKT_MSG_DEV="r7inp-6aaaa-aaaaa-aaabq-cai"
-export DKT_TIP_DEV="rkp4c-7iaaa-aaaaa-aaaca-cai"
-export DKT_CP_DEV="rno2w-sqaaa-aaaaa-aaacq-cai"
-export DKT_REG_DEV="b77ix-eeaaa-aaaaa-qaada-cai"
-export DKT_PARK_DEV="by6od-j4aaa-aaaaa-qaadq-cai"
-
-# Distrikt Staging related settings
-export DKT_MAIN_STG="a64ux-piaaa-aaaae-aaara-cai"
-export DKT_MSG_STG="jmgg2-taaaa-aaaae-aag7a-cai"
-export DKT_CP_STG="5dym3-qaaaa-aaaae-aajea-cai"
-export DKT_TIP_STG="4owiv-7iaaa-aaaae-aajdq-cai"
-export DKT_REG_STG="couov-7iaaa-aaaae-aahcq-cai"
-export DKT_PARK_STG="chxfj-jaaaa-aaaae-aahda-cai"
-
-# Distrikt Prod related settings
-export DKT_MAIN_PROD="cea4l-ryaaa-aaaae-aaa6a-cai"
-export DKT_MSG_PROD="csque-iiaaa-aaaae-aahaq-cai"
-export DKT_CP_PROD="3ets6-yqaaa-aaaae-aaf6a-cai"
-export DKT_TIP_PROD="cwgls-5iaaa-aaaae-aaa5a-cai"
-export DKT_REG_PROD="cawd5-eyaaa-aaaae-aahdq-cai"
-export DKT_PARK_PROD="dnyht-lqaaa-aaaae-aahea-cai"
-
-# Distrikt Bigmap buckets
-export DKT_BIGMAP="bbuha-mqaaa-aaaae-aaavq-cai 7lct6-caaaa-aaaae-aajia-cai 7mdvk-pyaaa-aaaae-aajiq-cai 7fa6w-zqaaa-aaaae-aajja-cai 7cbyc-uiaaa-aaaae-aajjq-cai 7xgjp-vaaaa-aaaae-aajka-cai 7qhp3-yyaaa-aaaae-aajkq-cai 7zeeh-oqaaa-aaaae-aajla-cai 76fct-diaaa-aaaae-aajlq-cai 6tlg5-maaaa-aaaae-aajma-cai 6ukaj-byaaa-aaaae-aajmq-cai 65jlv-xqaaa-aaaae-aajna-cai 62inb-2iaaa-aaaae-aajnq-cai 6pp4m-3aaaa-aaaae-aajoa-cai 6io2y-wyaaa-aaaae-aajoq-cai 6bnre-aqaaa-aaaae-aajpa-cai 6gmxq-niaaa-aaaae-aajpq-cai 32xnv-gaaaa-aaaae-aajqa-cai 35wlb-lyaaa-aaaae-aajqq-cai 3uva5-5qaaa-aaaae-aajra-cai 3tugj-qiaaa-aaaae-aajrq-cai 3gtxe-raaaa-aaaae-aajsa-cai 3bsrq-4yaaa-aaaae-aajsq-cai 3ir2m-kqaaa-aaaae-aajta-cai 3pq4y-hiaaa-aaaae-aajtq-cai 2c6yw-iaaaa-aaaae-aajua-cai 2f76c-fyaaa-aaaae-aajuq-cai 2m4v6-tqaaa-aaaae-aajva-cai 2l5tk-6iaaa-aaaae-aajvq-cai 262ch-7aaaa-aaaae-aajwa-cai 2z3et-syaaa-aaaae-aajwq-cai 2qypp-eqaaa-aaaae-aajxa-cai 2xzj3-jiaaa-aaaae-aajxq-cai"
+# # Remove annoying dfx warnings
+# export DFX_WARNING="-mainnet_plaintext_identity"
+#
+# # Distrikt DEV related settings
+# export DKT_MAIN_DEV="rrkah-fqaaa-aaaaa-aaaaq-cai"
+# export DKT_MSG_DEV="r7inp-6aaaa-aaaaa-aaabq-cai"
+# export DKT_TIP_DEV="rkp4c-7iaaa-aaaaa-aaaca-cai"
+# export DKT_CP_DEV="rno2w-sqaaa-aaaaa-aaacq-cai"
+# export DKT_REG_DEV="b77ix-eeaaa-aaaaa-qaada-cai"
+# export DKT_PARK_DEV="by6od-j4aaa-aaaaa-qaadq-cai"
+#
+# # Distrikt Staging related settings
+# export DKT_MAIN_STG="a64ux-piaaa-aaaae-aaara-cai"
+# export DKT_MSG_STG="jmgg2-taaaa-aaaae-aag7a-cai"
+# export DKT_CP_STG="5dym3-qaaaa-aaaae-aajea-cai"
+# export DKT_TIP_STG="4owiv-7iaaa-aaaae-aajdq-cai"
+# export DKT_REG_STG="couov-7iaaa-aaaae-aahcq-cai"
+# export DKT_PARK_STG="chxfj-jaaaa-aaaae-aahda-cai"
+#
+# # Distrikt Prod related settings
+# export DKT_MAIN_PROD="cea4l-ryaaa-aaaae-aaa6a-cai"
+# export DKT_MSG_PROD="csque-iiaaa-aaaae-aahaq-cai"
+# export DKT_CP_PROD="3ets6-yqaaa-aaaae-aaf6a-cai"
+# export DKT_TIP_PROD="cwgls-5iaaa-aaaae-aaa5a-cai"
+# export DKT_REG_PROD="cawd5-eyaaa-aaaae-aahdq-cai"
+# export DKT_PARK_PROD="dnyht-lqaaa-aaaae-aahea-cai"
+#
+# # Distrikt Bigmap buckets
+# export DKT_BIGMAP="bbuha-mqaaa-aaaae-aaavq-cai 7lct6-caaaa-aaaae-aajia-cai 7mdvk-pyaaa-aaaae-aajiq-cai 7fa6w-zqaaa-aaaae-aajja-cai 7cbyc-uiaaa-aaaae-aajjq-cai 7xgjp-vaaaa-aaaae-aajka-cai 7qhp3-yyaaa-aaaae-aajkq-cai 7zeeh-oqaaa-aaaae-aajla-cai 76fct-diaaa-aaaae-aajlq-cai 6tlg5-maaaa-aaaae-aajma-cai 6ukaj-byaaa-aaaae-aajmq-cai 65jlv-xqaaa-aaaae-aajna-cai 62inb-2iaaa-aaaae-aajnq-cai 6pp4m-3aaaa-aaaae-aajoa-cai 6io2y-wyaaa-aaaae-aajoq-cai 6bnre-aqaaa-aaaae-aajpa-cai 6gmxq-niaaa-aaaae-aajpq-cai 32xnv-gaaaa-aaaae-aajqa-cai 35wlb-lyaaa-aaaae-aajqq-cai 3uva5-5qaaa-aaaae-aajra-cai 3tugj-qiaaa-aaaae-aajrq-cai 3gtxe-raaaa-aaaae-aajsa-cai 3bsrq-4yaaa-aaaae-aajsq-cai 3ir2m-kqaaa-aaaae-aajta-cai 3pq4y-hiaaa-aaaae-aajtq-cai 2c6yw-iaaaa-aaaae-aajua-cai 2f76c-fyaaa-aaaae-aajuq-cai 2m4v6-tqaaa-aaaae-aajva-cai 2l5tk-6iaaa-aaaae-aajvq-cai 262ch-7aaaa-aaaae-aajwa-cai 2z3et-syaaa-aaaae-aajwq-cai 2qypp-eqaaa-aaaae-aajxa-cai 2xzj3-jiaaa-aaaae-aajxq-cai"

@@ -27,7 +27,8 @@ keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>d", '"_d')
 keymap.set("v", "<leader>d", '"_d')
 
-keymap.set("v", "<leader>d", '"_d')
+-- Set line wrap
+keymap.set("n", "<leader>lw", ":set wrap!<CR>")
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment

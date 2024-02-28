@@ -21,8 +21,8 @@ alias neovimconfig="nvim ~/.config/nvim/init.vim"
 
 # Python aliases
 #alias ignite_python='export PATH="/home/home/junk/anaconda/bin:$PATH"'
-alias ignite_python='. /opt/junk/.anaconda/etc/profile.d/conda.sh'
-alias py='/usr/bin/env python3'
+# alias ignite_python='. /opt/junk/.anaconda/etc/profile.d/conda.sh'
+alias py='/usr/bin/env python'
 alias pylab='/usr/bin/env ipython3 --pylab --TerminalInteractiveShell.history_length=1000000 --TerminalInteractiveShell.history_load_length=1000000 --no-confirm-exit --autocall=1'
 alias update-python="ignite_python && act py37 && conda update -n base conda -y && conda update --all -y"
 
@@ -38,9 +38,9 @@ alias gcm="git commit -m"
 
 # youtube-dl
 #alias ydl="youtube-dl -xi --audio-quality 0 --audio-format mp3"
-alias ydl="yt-dlp --embed-thumbnail --add-metadata"
+alias ydl="youtube-dl --embed-thumbnail --add-metadata"
 # alias yzic='youtube-dl -xi -f bestaudio --audio-format mp3 --embed-thumbnail --add-metadata '
-alias yzic='yt-dlp -xi -f bestaudio --embed-thumbnail --add-metadata '
+alias yzic='youtube-dl -xi -f bestaudio --embed-thumbnail --add-metadata '
 alias zicdl="yzic"
 
 # RUST aliases
@@ -82,7 +82,7 @@ alias blowout-cups="sudo systemctl stop cups.{service,socket,path}"
 alias didc="$HOME/workspace/icp/repos/candid/target/release/didc"
 
 # Tmux aliases
-alias ntx="tmux new-session -t"
+alias ntx="tmux -u new-session -t"
 
 # Zellij (terminal multiplexer written in Rust) aliases.
 alias zj="zellij"
