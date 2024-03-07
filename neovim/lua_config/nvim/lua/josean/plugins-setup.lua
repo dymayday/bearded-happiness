@@ -190,14 +190,14 @@ return packer.startup(function(use)
 
   use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
 
-  -- -- -- better terminal integration
-  -- -- use({
-  -- --   "akinsho/toggleterm.nvim",
-  -- --   tag = "*",
-  -- --   config = function()
-  -- --     require("toggleterm").setup()
-  -- --   end,
-  -- -- })
+  -- better terminal integration
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = function()
+      require("toggleterm").setup()
+    end,
+  })
 
   use({
     "folke/which-key.nvim",

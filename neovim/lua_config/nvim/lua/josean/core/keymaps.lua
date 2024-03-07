@@ -101,6 +101,13 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 keymap.set("n", "<leader>km", "<cmd>Telescope keymaps<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
+-- Gitsigns
+keymap.set("n", "<leader>gstb", "<cmd>Gitsigns toggle_current_line_blame<cr>") -- toggle current line blame
+keymap.set("n", "<leader>gstnh", "<cmd>Gitsigns toggle_numhl<cr>") -- toggle number highlight
+keymap.set("n", "<leader>gstlh", "<cmd>Gitsigns toggle_linehl<cr>") -- toggle line highlight
+keymap.set("n", "<leader>gstwd", "<cmd>Gitsigns toggle_word_diff<cr>") -- toggle word diff
+keymap.set("n", "<leader>gstd", "<cmd>Gitsigns toggle_deleted<cr>") -- toggle current line blame
+
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
