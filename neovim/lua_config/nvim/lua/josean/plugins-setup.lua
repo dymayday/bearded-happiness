@@ -153,14 +153,6 @@ return packer.startup(function(use)
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
   use("ray-x/go.nvim") -- go specific lsp functionality
 
-  -- Visualize lsp progress
-  use({
-    "j-hui/fidget.nvim",
-    tag = "legacy",
-    config = function()
-      require("fidget").setup()
-    end,
-  })
   -- -- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports);
 
   -- formatting & linting
@@ -190,14 +182,26 @@ return packer.startup(function(use)
 
   use("simrat39/symbols-outline.nvim") -- Show symbole/tags in a separate panel
 
-  -- better terminal integration
+  -- Visualize lsp progress
   use({
-    "akinsho/toggleterm.nvim",
-    tag = "*",
+    "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
-      require("toggleterm").setup()
+      require("fidget").setup({
+        description = "float",
+      })
+      -- require("fidget").setup()
     end,
   })
+
+  -- -- better terminal integration
+  -- use({
+  --   "akinsho/toggleterm.nvim",
+  --   tag = "*",
+  --   config = function()
+  --     require("toggleterm").setup()
+  --   end,
+  -- })
 
   use({
     "folke/which-key.nvim",

@@ -71,7 +71,7 @@ local on_attach = function(client, bufnr)
   -- Call hierarchy
   keymap.set("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts)
   keymap.set("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts)
-  keymap.set("n", "<leader>tr", "<cmd>Lspsaga term_toggle<cr>") -- list current changes per file with diff preview ["gs" for git status]
+  -- keymap.set("n", "<leader>tr", "<cmd>Lspsaga term_toggle<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
   -- -- typescript specific keymaps (e.g. rename file and update imports)
   -- if client.name == "tsserver" then
