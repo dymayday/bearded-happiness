@@ -106,7 +106,7 @@ keymap.set("n", "<leader>gtb", "<cmd>Gitsigns toggle_current_line_blame<cr>") --
 keymap.set("n", "<leader>gtn", "<cmd>Gitsigns toggle_numhl<cr>") -- toggle number highlight
 keymap.set("n", "<leader>gtl", "<cmd>Gitsigns toggle_linehl<cr>") -- toggle line highlight
 keymap.set("n", "<leader>gtw", "<cmd>Gitsigns toggle_word_diff<cr>") -- toggle word diff
-keymap.set("n", "<leader>gstd", "<cmd>Gitsigns toggle_deleted<cr>") -- toggle current line blame
+keymap.set("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<cr>") -- toggle current line blame
 
 keymap.set("n", "<leader>tr", "<cmd>Lspsaga term_toggle<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
