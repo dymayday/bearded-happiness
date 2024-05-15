@@ -1,4 +1,6 @@
+atac
 bacon
+bandwhich
 bat
 cargo-audit
 cargo-edit
@@ -8,17 +10,23 @@ cargo-update
 cargo-updated
 cargo-watch
 cross
+csvlens
+difftastic
 du-dust
 exa
 fd-find
 flamegraph
 gitui
+gping
+hexyl
 hyperfine
-mdbook
 ic-cdk-optimizer
 ic-wasm
 icx-asset
 inferno
+lsd
+mdbook
+ouch
 ripgrep
 rustlings
 rusty-tags
@@ -28,4 +36,5 @@ systemfd
 tealdeer
 twiggy
 wasm-pack
+xplr
 zellij
