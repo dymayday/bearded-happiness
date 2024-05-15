@@ -218,6 +218,10 @@ return packer.startup(function(use)
 
   -- Github copilot
   use("github/copilot.vim")
+  vim.api.nvim_create_autocmd("VimEnter", {
+    desc = "Disable Copilot by default on startup",
+    command = "Copilot disable",
+  })
 
   -- ChatGPT
   use({

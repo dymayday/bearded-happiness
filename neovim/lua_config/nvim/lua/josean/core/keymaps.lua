@@ -166,3 +166,7 @@ end, silent)
 -- keymap.set("n", "<leader><leader>F", "<Plug>(leap-backward-to)")
 -- keymap.set("n", "<leader><leader>t", "<Plug>(leap-forward-till)")
 -- keymap.set("n", "<leader><leader>T", "<Plug>(leap-backward-till)")
+
+-- Copilot
+keymap.set("n", "<leader>ce", "<cmd>Copilot enable<cr>")
+keymap.set("n", "<leader>cd", "<cmd>Copilot disable<cr>")

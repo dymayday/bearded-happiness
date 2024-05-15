@@ -5,6 +5,7 @@ alias lm='ls -larhS'
 alias update-system='yay -Syu'
 alias rm='rm'
 alias zshconfig="$EDITOR $HOME/.zshrc"
+alias as-tree='tree --fromfile'
 
 # GPU handling
 alias ignite-gpu="sudo /opt/bin/enablegpu.sh"
