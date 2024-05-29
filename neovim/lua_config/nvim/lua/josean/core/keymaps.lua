@@ -152,14 +152,22 @@ end, silent)
 keymap.set("n", "<leader>w", function()
   require("harpoon.ui").toggle_quick_menu()
 end, silent)
--- -- Jump to the next harpoon.
--- keymap.set("n", "<leader>wx", function()
---   require("harpoon.ui").nav_next()
--- end, silent)
--- -- Jump to the rpvious harpoon.
--- keymap.set("n", "<leader>ws", function()
---   require("harpoon.ui").nav_prev()
--- end, silent)
+-- Jump to the next harpoon.
+keymap.set("n", "<leader>ws", function()
+  require("harpoon.ui").nav_next()
+end, silent)
+-- Jump to the rpvious harpoon.
+keymap.set("n", "<leader>wr", function()
+  require("harpoon.ui").nav_prev()
+end, silent)
+-- Jump to the next harpoon.
+keymap.set("n", "<leader>wn", function()
+  require("harpoon.ui").nav_next()
+end, silent)
+-- Jump to the rpvious harpoon.
+keymap.set("n", "<leader>wp", function()
+  require("harpoon.ui").nav_prev()
+end, silent)
 
 -- -- Leap mapping.
 -- keymap.set("n", "<leader><leader>f", "<Plug>(leap-forward-to)")

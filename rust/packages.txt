@@ -2,6 +2,7 @@ atac
 bacon
 bandwhich
 bat
+broot
 cargo-audit
 cargo-edit
 cargo-generate
@@ -16,6 +17,7 @@ du-dust
 exa
 fd-find
 flamegraph
+git-delta
 gitui
 gping
 hexyl
@@ -26,6 +28,7 @@ icx-asset
 inferno
 lsd
 mdbook
+netscanner
 ouch
 ripgrep
 rustlings
@@ -34,6 +37,7 @@ sccache
 skim
 systemfd
 tealdeer
+trippy
 twiggy
 wasm-pack
 xplr
