@@ -35,6 +35,7 @@ rustlings
 rusty-tags
 sccache
 skim
+sqlx-cli
 systemfd
 tealdeer
 trippy
