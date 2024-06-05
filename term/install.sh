@@ -3,6 +3,8 @@
 ln -s $PWD/zsh/zshrc.macos $HOME/.zshrc
 ln -s $PWD/zsh/zsh_theme $HOME/.zsh_theme
 
+ln -s $PWD/bash/bash_aliases $HOME/.bash_aliases
+
 # ln -s ./zsh/profile $HOME/.profile
 # ln -s ./bash/bash_profileprofile $HOME/.bash_profile
 

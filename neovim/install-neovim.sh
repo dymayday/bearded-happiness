@@ -5,7 +5,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # cp -R ./lua_config/nvim ~/.config/
-ln -s $PWD/lua_config/nvim $HOME/.config/nviminstall
+ln -s $PWD/lua_config/nvim $HOME/.config/nvim
 
 
 # # Tweak operator color to get a pretty blue.
