@@ -145,7 +145,7 @@ HIST_STAMPS="yyyy/mm/dd"
 
 
 # export VISUAL="vim"
-export EDITOR="$(if [[ -f /usr/bin/nvim ]]; then echo 'nvim'; else echo 'vim'; fi)"
+export EDITOR="$(if [[ -f $(which nvim) ]]; then echo 'nvim'; else echo 'vim'; fi)"
 setopt CORRECT
 
 # Compilation flags
@@ -169,7 +169,8 @@ fi
 function cs() { cd "$@" && l; }
 function cx() { cd "$@" && exa -lg; }
 # function ignite_python() { . /home/home/junk/anaconda/etc/profile.d/conda.sh && conda activate maelstrom && export  VIRTUAL_ENV="maelstrom" ; }
-function act() { conda activate "$1" && export  VIRTUAL_ENV=$CONDA_PREFIX ; }
+# function act() { conda activate "$1" && export  VIRTUAL_ENV=$CONDA_PREFIX ; }
+function act() { conda activate "$1" }
 function sudox() { xhost si:localuser:root && sudo "$@" && xhost -si:localuser:root ; }
 
 # Push musics to Android phone
@@ -180,16 +181,16 @@ function adb_push_download() { adb push "$@" /storage/self/primary/Download/ }
 function gpu-run() { ignite-gpu && vblank_mode=0 optirun "$@" ; blowout-gpu }
 # function gpu-run() { ignite-gpu && vblank_mode=0 primusrun "$@" ; blowout-gpu }
 
-functions clean-cargo-directories() {
-    for DIR in *; do
-        if [ -d "$DIR" ]; then
-            echo "Cleaning Cargo project $DIR..."
-            cd "$DIR"
-            cargo clean
-            cd ..
-        fi
-    done
-}
+# functions clean-cargo-directories() {
+#     for DIR in *; do
+#         if [ -d "$DIR" ]; then
+#             echo "Cleaning Cargo project $DIR..."
+#             cd "$DIR"
+#             cargo clean
+#             cd ..
+#         fi
+#     done
+# }
 
 
 # Anaconda export
@@ -211,10 +212,13 @@ export GOPATH="$HOME/.go"
 # export PATH="$PATH:$HOME/junk/zig/zig/build/stage3/bin"
 
 # Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
-# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
+
+# base16_default
+base16_monokai
 
 
 # export BULLETTRAIN_PROMPT_ORDER=(time status custom context dir virtualenv git cmd_exec_time)
@@ -231,7 +235,7 @@ export BULLETTRAIN_VIRTUALENV_FG="black"
 function ignite_node() { export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" ;}
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # && nvm use v7 # This loads nvm
 # source /usr/share/nvm/init-nvm.sh
-# ignite_node
+ignite_node
 
 export VSCODE_NONFREE=1
 
@@ -257,12 +261,12 @@ export VSCODE_NONFREE=1
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
 
-function maria4 () {
-    urls=("$@")
-    for url in "${urls[@]}"; do
-        aria2c -x 4 -j 4 -s 4 -c "$url"
-    done
-}
+# function maria4 () {
+#     urls=("$@")
+#     for url in "${urls[@]}"; do
+#         aria2c -x 4 -j 4 -s 4 -c "$url"
+#     done
+# }
 
 # CUDA setting
 # export LD_LIBRARY_PATH="/opt/cuda/lib64"
@@ -270,6 +274,7 @@ function maria4 () {
 
 ## Theme Park :) ##
 source ~/.zsh_theme
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # source ~/.profile
 
 # # Nix
@@ -281,13 +286,11 @@ source ~/.zsh_theme
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 # if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
 #   MOZ_ENABLE_WAYLAND=1 QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
 # fi
 # QT_QPA_PLATFORM=wayland
-
-# Call fastfetch if the executable exists for a nice terminal header experience.
-[ -x "$(command -v fastfetch)" ] && fastfetch
 
 # # DFinity settings
 # export PATH="$PATH:$HOME/workspace/icp/bin"
@@ -328,4 +331,44 @@ source ~/.zsh_theme
 #
 # # Distrikt Bigmap buckets
 # export DKT_BIGMAP="bbuha-mqaaa-aaaae-aaavq-cai 7lct6-caaaa-aaaae-aajia-cai 7mdvk-pyaaa-aaaae-aajiq-cai 7fa6w-zqaaa-aaaae-aajja-cai 7cbyc-uiaaa-aaaae-aajjq-cai 7xgjp-vaaaa-aaaae-aajka-cai 7qhp3-yyaaa-aaaae-aajkq-cai 7zeeh-oqaaa-aaaae-aajla-cai 76fct-diaaa-aaaae-aajlq-cai 6tlg5-maaaa-aaaae-aajma-cai 6ukaj-byaaa-aaaae-aajmq-cai 65jlv-xqaaa-aaaae-aajna-cai 62inb-2iaaa-aaaae-aajnq-cai 6pp4m-3aaaa-aaaae-aajoa-cai 6io2y-wyaaa-aaaae-aajoq-cai 6bnre-aqaaa-aaaae-aajpa-cai 6gmxq-niaaa-aaaae-aajpq-cai 32xnv-gaaaa-aaaae-aajqa-cai 35wlb-lyaaa-aaaae-aajqq-cai 3uva5-5qaaa-aaaae-aajra-cai 3tugj-qiaaa-aaaae-aajrq-cai 3gtxe-raaaa-aaaae-aajsa-cai 3bsrq-4yaaa-aaaae-aajsq-cai 3ir2m-kqaaa-aaaae-aajta-cai 3pq4y-hiaaa-aaaae-aajtq-cai 2c6yw-iaaaa-aaaae-aajua-cai 2f76c-fyaaa-aaaae-aajuq-cai 2m4v6-tqaaa-aaaae-aajva-cai 2l5tk-6iaaa-aaaae-aajvq-cai 262ch-7aaaa-aaaae-aajwa-cai 2z3et-syaaa-aaaae-aajwq-cai 2qypp-eqaaa-aaaae-aajxa-cai 2xzj3-jiaaa-aaaae-aajxq-cai"
+
+
+# # Base16 Shell
 #
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         source "$BASE16_SHELL/profile_helper.sh"
+#         
+# base16_monokai
+
+# Activate conda environment
+function ignite_python() { 
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+# . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"  # commented out by conda initialize
+      else
+# export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"  # commented out by conda initialize
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+;}
+
+# Yazi conf https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# Let's have a nice welcome message :)
+fastfetch
