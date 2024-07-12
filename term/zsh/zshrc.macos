@@ -371,4 +371,4 @@ function yy() {
 }
 
 # Let's have a nice welcome message :)
-fastfetch
+[ -x "$(command -v fastfetch)" ] && fastfetch

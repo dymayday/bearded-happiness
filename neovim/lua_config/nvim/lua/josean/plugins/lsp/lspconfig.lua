@@ -53,6 +53,8 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts)
   keymap.set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+  keymap.set("n", "<leader>.", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+  keymap.set("n", "<leader>,", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
   keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
   keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
   keymap.set("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
