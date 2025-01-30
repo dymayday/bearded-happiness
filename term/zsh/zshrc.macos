@@ -275,7 +275,7 @@ export VSCODE_NONFREE=1
 ## Theme Park :) ##
 source ~/.zsh_theme
 # source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-# source ~/.profile
+source ~/.profile
 
 # # Nix
 # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -372,3 +372,6 @@ function yy() {
 
 # Let's have a nice welcome message :)
 [ -x "$(command -v fastfetch)" ] && fastfetch
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/meidhy/.lmstudio/bin"

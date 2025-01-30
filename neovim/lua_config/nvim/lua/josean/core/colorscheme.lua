@@ -50,6 +50,13 @@ if not status then
   return
 end
 
+-- -- NvChad base46
+-- local status, theme = pcall(vim.cmd, "colorscheme base46")
+-- if not status then
+--   print("Colorscheme not found!") -- print error if colorscheme not installed
+--   return
+-- end
+
 vim.cmd("colorscheme gruvbox-material")
 -- vim.cmd("let base16colorspace=256")
 -- vim.cmd("colorscheme base16-gruvbox-dark-hard")

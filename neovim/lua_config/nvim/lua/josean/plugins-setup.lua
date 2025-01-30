@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use("sainnhe/edge")
   use("sainnhe/sonokai")
   use("chriskempson/base16-vim")
+  use("NvChad/base46")
 
   -- commenting with gc
   use("numToStr/Comment.nvim")
@@ -83,6 +84,9 @@ return packer.startup(function(use)
   use("hrsh7th/nvim-cmp") -- completion plugin
   use("hrsh7th/cmp-buffer") -- source for text in buffer
   use("hrsh7th/cmp-path") -- source for file system paths
+
+  -- Mark variables
+  -- use("Saghen/blink.cmp")
 
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
@@ -152,6 +156,7 @@ return packer.startup(function(use)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
   use("simrat39/rust-tools.nvim") -- rust specific lsp functionality
   use("ray-x/go.nvim") -- go specific lsp functionality
+  use("ziglang/zig.vim") -- zig specific lsp functionality
 
   -- -- use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports);
 
@@ -190,7 +195,7 @@ return packer.startup(function(use)
       require("fidget").setup({
         description = "float",
       })
-      -- require("fidget").setup()
+      require("fidget").setup()
     end,
   })
 
@@ -222,6 +227,10 @@ return packer.startup(function(use)
     desc = "Disable Copilot by default on startup",
     command = "Copilot disable",
   })
+
+  -- Local LLM.
+  -- use("David-Kunz/gen.nvim")
+  -- use("huggingface/llm.nvim")
 
   -- -- ChatGPT
   -- use({

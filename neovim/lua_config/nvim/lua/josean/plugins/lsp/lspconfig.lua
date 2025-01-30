@@ -120,21 +120,31 @@ lspconfig["cssls"].setup({
   on_attach = on_attach,
 })
 
+lspconfig["zls"].setup({
+  -- Server-specific settings. See `:help lspconfig-setup`
+
+  -- omit the following line if `zls` is in your PATH
+  cmd = { "/opt/homebrew/bin/zls" },
+  -- There are two ways to set config options:
+  --   - edit your `zls.json` that applies to any editor that uses ZLS
+  --   - set in-editor config options with the `settings` field below.
+  --
+  -- Further information on ZLS config options:
+  -- https://github.com/zigtools/zls#configuration-options
+  settings = {
+    zls = {
+      -- omit the following line if `zig` is in your PATH
+      zig_exe_path = "/opt/homebrew/bin/zig",
+    },
+  },
+})
+
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
-
--- lspconfig["solidity"] = {
---   default_config = {
---     cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
---     filetypes = { "solidity" },
---     root_dir = lspconfig["util"].find_git_ancestor,
---     single_file_support = true,
---   },
--- }
 
 lspconfig["solidity"].setup({
   cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
