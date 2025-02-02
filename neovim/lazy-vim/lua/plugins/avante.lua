@@ -12,8 +12,8 @@ return {
         api_key_name = "",
         endpoint = "http://127.0.0.1:11434/v1",
         -- model = "qwen2.5-coder:14b", -- Change this to the local model you have (e.g., `llama2`, `gemma`, etc.)
-        -- model = "qwen2.5-coder:32b",
-        model = "deepseek-coder-v2:16b",
+        model = "qwen2.5-coder:32b",
+        -- model = "deepseek-coder-v2:16b",
         max_tokens = 32000, -- Adjust based on your needs
         temperature = 1.0, -- Adjust creativity level
         host = "http://localhost:11434", -- Default Ollama API endpoint
