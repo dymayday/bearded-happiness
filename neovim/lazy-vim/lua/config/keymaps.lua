@@ -10,11 +10,13 @@ map("n", "x", '"_x')
 -- greatest remap ever
 map("x", "<leader>p", '"_dP')
 
+-- GitSigns keymaps
 map("n", "<leader>gtl", "<cmd>Gitsigns toggle_current_line_blame<cr>") -- toggle current line blame
 map("n", "<leader>gth", "<cmd>Gitsigns toggle_linehl<cr>") -- toggle line highlight
 map("n", "<leader>gtn", "<cmd>Gitsigns toggle_numhl<cr>") -- toggle number highlight
 map("n", "<leader>gtw", "<cmd>Gitsigns toggle_word_diff<cr>") -- toggle word diff
 map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<cr>") -- toggle current line blame
+map("n", "<leader>gts", "<cmd>Gitsigns toggle_signs<cr>") -- toggle current line blame
 
 -- next greatest remap ever :
 -- keymap.set("n", "<leader>y", '"+y')
