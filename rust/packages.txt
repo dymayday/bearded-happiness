@@ -5,6 +5,7 @@ bat
 broot
 cargo-audit
 cargo-edit
+cargo-fuzz
 cargo-generate
 cargo-tree
 cargo-update
