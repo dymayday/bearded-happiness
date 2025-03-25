@@ -4,7 +4,11 @@ return {
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
+    behaviour = {
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
     -- add any opts here
+    -- provider = "copilot",
     provider = "ollama",
     vendors = {
       ollama = {
