@@ -11,7 +11,6 @@ return {
     -- provider = "ollama",
     provider = "copilot",
     copilot = {
-      -- model = "claude-3.5-sonnet",
       model = "claude-3.7-sonnet",
       max_tokens = 128000, -- Adjust based on your needs
       temperature = 0.2, -- Adjust creativity level : 0 to 0.3 is better for coding.
