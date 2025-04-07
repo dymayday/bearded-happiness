@@ -14,6 +14,36 @@ return {
       model = "claude-3.7-sonnet",
       max_tokens = 128000, -- Adjust based on your needs
       temperature = 0.2, -- Adjust creativity level : 0 to 0.3 is better for coding.
+      -- -- Add your new model here
+      -- custom_models = {
+      --   ["claude-3.5-sonnet"] = {
+      --     endpoint = "https://api.githubcopilot.com",
+      --     model = "claude-3.5-sonnet",
+      --     timeout = 30000,
+      --     temperature = 0.2,
+      --     max_tokens = 128000,
+      --   },
+      --   ["gpt-4o"] = {
+      --     endpoint = "https://api.githubcopilot.com",
+      --     timeout = 30000,
+      --     temperature = 0.2,
+      --     max_tokens = 128000,
+      --   },
+      --   ["gpt-o1"] = {
+      --     endpoint = "https://api.githubcopilot.com",
+      --     model = "o1",
+      --     timeout = 30000,
+      --     temperature = 0.2,
+      --     max_tokens = 128000,
+      --   },
+      --   ["gemini-2.0-flash"] = {
+      --     endpoint = "https://api.githubcopilot.com",
+      --     model = "gemini-2.0-flash",
+      --     timeout = 30000,
+      --     temperature = 0.2,
+      --     max_tokens = 128000,
+      --   },
+      -- },
     },
     -- vendors = {},
     -- ollama = {
