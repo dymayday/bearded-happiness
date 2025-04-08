@@ -1,6 +1,14 @@
+-- return {
+--   {
+--     "github/copilot.vim",
+--     -- event = "InsertEnter", -- Load when entering insert mode
+--   },
+-- }
+
 return {
-  {
-    "github/copilot.vim",
-    -- event = "InsertEnter", -- Load when entering insert mode
-  },
+  "zbirenbaum/copilot.lua",
+  optional = true,
+  opts = function()
+    require("copilot.api").status = require("copilot.status")
+  end,
 }
