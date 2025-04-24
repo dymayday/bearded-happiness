@@ -12,3 +12,11 @@ if vim.g.neovide then
   vim.o.guifont = "FiraCode Nerd Font" -- text below applies for VimScript
   -- vim.o.guifont = "Source Code Pro:h14" -- text below applies for VimScript
 end
+
+-- -- Set color scheme to tokyonight-storm for Markdown files
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "markdown",
+--   callback = function()
+--     vim.cmd("colorscheme tokyonight-storm")
+--   end,
+-- })

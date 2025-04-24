@@ -14,6 +14,7 @@ return {
       model = "claude-3.7-sonnet",
       -- model = "gpt-4o",
       -- model = "o1",
+      -- model = "gemini-2.0-flash",
       max_tokens = 128000, -- Adjust based on your needs
       temperature = 0.2, -- Adjust creativity level : 0 to 0.3 is better for coding.
       -- -- Add your new model here
