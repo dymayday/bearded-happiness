@@ -10,44 +10,51 @@ return {
     -- add any opts here
     -- provider = "ollama",
     provider = "copilot",
-    copilot = {
-      model = "claude-3.7-sonnet",
-      -- model = "gpt-4o",
-      -- model = "o1",
-      -- model = "gemini-2.0-flash",
-      max_tokens = 128000, -- Adjust based on your needs
-      temperature = 0.2, -- Adjust creativity level : 0 to 0.3 is better for coding.
-      -- -- Add your new model here
-      -- custom_models = {
-      --   ["claude-3.5-sonnet"] = {
-      --     endpoint = "https://api.githubcopilot.com",
-      --     model = "claude-3.5-sonnet",
-      --     timeout = 30000,
-      --     temperature = 0.2,
-      --     max_tokens = 128000,
-      --   },
-      --   ["gpt-4o"] = {
-      --     endpoint = "https://api.githubcopilot.com",
-      --     model = "gpt-4o",
-      --     timeout = 30000,
-      --     temperature = 0.2,
-      --     max_tokens = 128000,
-      --   },
-      --   ["gpt-o1"] = {
-      --     endpoint = "https://api.githubcopilot.com",
-      --     model = "o1",
-      --     timeout = 30000,
-      --     temperature = 0.2,
-      --     max_tokens = 128000,
-      --   },
-      --   ["gemini-2.0-flash"] = {
-      --     endpoint = "https://api.githubcopilot.com",
-      --     model = "gemini-2.0-flash",
-      --     timeout = 30000,
-      --     temperature = 0.2,
-      --     max_tokens = 128000,
-      --   },
-      -- },
+    providers = {
+
+      copilot = {
+        extra_request_body = {
+          temperature = 0.2, -- Adjust creativity level : 0 to 0.3 is better for coding.
+          max_tokens = 128000, -- Adjust based on your needs
+        },
+        model = "claude-sonnet-4",
+        -- model = "gemini-2.5-pro",
+        -- model = "claude-3.7-sonnet",
+        -- model = "gpt-4o",
+        -- model = "o1",
+        -- model = "gemini-2.0-flash",
+        -- -- Add your new model here
+        -- custom_models = {
+        --   ["claude-3.5-sonnet"] = {
+        --     endpoint = "https://api.githubcopilot.com",
+        --     model = "claude-3.5-sonnet",
+        --     timeout = 30000,
+        --     temperature = 0.2,
+        --     max_tokens = 128000,
+        --   },
+        --   ["gpt-4o"] = {
+        --     endpoint = "https://api.githubcopilot.com",
+        --     model = "gpt-4o",
+        --     timeout = 30000,
+        --     temperature = 0.2,
+        --     max_tokens = 128000,
+        --   },
+        --   ["gpt-o1"] = {
+        --     endpoint = "https://api.githubcopilot.com",
+        --     model = "o1",
+        --     timeout = 30000,
+        --     temperature = 0.2,
+        --     max_tokens = 128000,
+        --   },
+        --   ["gemini-2.0-flash"] = {
+        --     endpoint = "https://api.githubcopilot.com",
+        --     model = "gemini-2.0-flash",
+        --     timeout = 30000,
+        --     temperature = 0.2,
+        --     max_tokens = 128000,
+        --   },
+        -- },
+      },
     },
     -- vendors = {},
     -- ollama = {
