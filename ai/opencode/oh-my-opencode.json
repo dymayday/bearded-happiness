@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "Sisyphus": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3
+    },
+    "librarian": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2
+    },
+    "explore": {
+      "model": "opencode/grok-code",
+      "temperature": 0.7
+    },
+    "oracle": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.5
+    },
+    "document-writer": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.3
+    },
+    "multimodal-looker": {
+      "model": "opencode/glm-4.7-free"
+    }
+  }
+}
