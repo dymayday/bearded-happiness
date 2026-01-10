@@ -1,0 +1,20 @@
+[
+  {
+    "category": "functional",
+    "description": "Generate a Product Requirements Document (PRD) based on user input.",
+    "steps": [
+      "Read the documents in @docs",
+      "Understand the codebase"
+    ],
+    "passes": true
+  },
+  {
+    "category": "validation",
+    "description": "Invalid path shows error message",
+    "steps": [
+      "Read the documents in @docs",
+      "Understand the codebase"
+    ],
+    "passes": true
+  }
+]
