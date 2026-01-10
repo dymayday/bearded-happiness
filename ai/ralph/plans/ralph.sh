@@ -16,7 +16,7 @@ for ((i = 1; i <= $1; i++)); do
 1. Find the highest priority feature in prd.json to work on and only work on that feature. \
 This should be the one that YOU decide has the highest priority. not necessarily the first that you encounter. \
 2. Check that all the tests are passing. \
-3. Update the prd.json file with the work that was done. \
+3. Update the PRD file with the work that was done. \
 4. Append your progress to progress.txt. \
 Use this to make a note for the next person working on this codebase. \
 5. Make a git commit of that feature. \
