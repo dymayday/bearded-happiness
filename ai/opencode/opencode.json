@@ -1,6 +1,7 @@
 {
-  "plugin": [
-    "oh-my-opencode"
-  ],
+  "plugin": [],
+  "keybinds": {
+    "leader": "ctrl+p"
+  },
   "$schema": "https://opencode.ai/config.json"
 }
