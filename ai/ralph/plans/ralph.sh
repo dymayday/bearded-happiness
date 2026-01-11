@@ -12,7 +12,7 @@ for ((i = 1; i <= $1; i++)); do
   echo "Iteration $i: Running Ralph plan..."
 
   ralph plan run --plan ralph_plan.yaml
-  results=$(opencode "@plans/prd.json @progress.txt \
+  results=$(opencode --prompt "@plans/prd.json @progress.txt \
 1. Find the highest priority feature in prd.json to work on and only work on that feature. \
 This should be the one that YOU decide has the highest priority. not necessarily the first that you encounter. \
 2. Check that all the tests are passing. \
