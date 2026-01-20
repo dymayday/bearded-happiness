@@ -1,7 +1,8 @@
 ---
 description: Brainstorming agent for generating ideas and suggestions
 mode: primary
-model: opencode/glm-4.7-free
+model: zai-coding-plan/glm-4.7
+# model: opencode/glm-4.7-free
 temperature: 0.7
 tools:
   write: false

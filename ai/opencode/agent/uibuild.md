@@ -1,8 +1,9 @@
 ---
 description: UI builer agent for generating web frontend and mobile app
 mode: primary
-model: opencode/gemini-3-pro-preview
-temperature: 0.3
+model: zai-coding-plan/glm-4.7
+# model: opencode/glm-4.7-free
+temperature: 0.4
 tools:
   write: true
   edit: true
