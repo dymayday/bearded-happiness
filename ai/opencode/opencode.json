@@ -1,7 +1,23 @@
 {
-  "plugin": [],
+  "plugin": [
+    "opencode-antigravity-auth@latest"
+  ],
   "keybinds": {
     "leader": "ctrl+p"
   },
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "zai-org/glm-4.7-flash": {
+          "name": "glm-4.7-flash (local)"
+        }
+      }
+    }
+  }
 }

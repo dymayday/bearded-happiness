@@ -375,3 +375,6 @@ function yy() {
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/meidhy/.lmstudio/bin"
+
+# Added by Antigravity
+export PATH="/Users/meidhy/.antigravity/antigravity/bin:$PATH"
